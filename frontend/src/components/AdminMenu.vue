@@ -1,27 +1,48 @@
 <template>
     <b-menu class="m-t-50">
         <b-menu-list label="Menu">
+            <router-link to="/admin/overview" id="fix-align">
+                <b-menu-item label="Overview"></b-menu-item>
+            </router-link>
             <b-menu-item label="Pages">
-                <router-link to="">
+                <router-link to="/admin/pages/overview">
                     <b-menu-item label="Overview"></b-menu-item>
                 </router-link>
-                <b-menu-item label="New Page"></b-menu-item>
+                <router-link to="/admin/pages/new">
+                    <b-menu-item label="New Page"></b-menu-item>
+                </router-link>
             </b-menu-item>
             <b-menu-item label="Top Category">
-                <b-menu-item label="Overview"></b-menu-item>
-                <b-menu-item label="New Category"></b-menu-item>
+                <router-link to="/admin/topCategories/overview">
+                    <b-menu-item label="Overview"></b-menu-item>
+                </router-link>
+                <router-link to="/admin/topCategories/new">
+                    <b-menu-item label="New Category"></b-menu-item>
+                </router-link>
             </b-menu-item>
             <b-menu-item label="Under Category">
-                <b-menu-item label="Overview"></b-menu-item>
-                <b-menu-item label="New Page"></b-menu-item>
+                <router-link to="/admin/categories/overview">
+                    <b-menu-item label="Overview"></b-menu-item>
+                </router-link>
+                <router-link to="/admin/category/new">
+                    <b-menu-item label="New Page"></b-menu-item>
+                </router-link>
             </b-menu-item>
             <b-menu-item label="Articles">
-                <b-menu-item label="Overview"></b-menu-item>
-                <b-menu-item label="New Article"></b-menu-item>
+                <router-link to="/admin/articles/overview">
+                    <b-menu-item label="Overview"></b-menu-item>
+                </router-link>
+                <router-link to="/admin/articles/new">
+                    <b-menu-item label="New Article"></b-menu-item>
+                </router-link>
             </b-menu-item>
             <b-menu-item label="Settings">
-                <b-menu-item label="Language Support"></b-menu-item>
-                <b-menu-item label="Edit Site"></b-menu-item>
+                <router-link to="">
+                    <b-menu-item label="Language Support"></b-menu-item>
+                </router-link>
+                <router-link to="">
+                    <b-menu-item label="Edit Site"></b-menu-item>
+                </router-link>
             </b-menu-item>
         </b-menu-list>
         <b-menu-list label="Actions">
@@ -49,3 +70,8 @@
         }
     }
 </script>
+<style>
+    #fix-align {
+        padding: .5em 0;
+    }
+</style>

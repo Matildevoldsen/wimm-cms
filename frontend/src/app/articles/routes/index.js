@@ -1,6 +1,18 @@
-import { New, Edit, Delete, View } from '../components'
+import { New, Edit, Delete, View, Overview } from '../components'
 
 export default [
+    {
+        path: '/admin/articles/overview',
+        component: Overview,
+        name: 'overview.article',
+        meta: {
+            title: 'Overview For Articles',
+            guest: false,
+            needsAuth: true,
+            isAll: false,
+            needsAdmin: true
+        }
+    },
     {
         path: '/admin/articles/new',
         component: New,

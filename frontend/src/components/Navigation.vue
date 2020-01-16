@@ -1,5 +1,5 @@
 <template>
-    <b-navbar shadow>
+    <b-navbar shadow wrapper-class="container">
         <template slot="brand">
             <b-navbar-item tag="router-link" to="/">
                 Wimm CMS

@@ -8,7 +8,7 @@
                             Sign In
                         </p>
                     </header>
-                    <form v-on:submit.prevent="submit" action="#" method="post" role="form">
+                    <form v-on:keyup.enter.prevent="submit" action="#" method="post" role="form">
                         <div class="card-content">
                             <b-message has-icon v-if="errors.root" title="Error" type="is-danger"
                                        aria-close-label="Close message">

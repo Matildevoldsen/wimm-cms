@@ -13,7 +13,7 @@
                                    aria-close-label="Close message">
                             {{ errors.root }}
                         </b-message>
-                        <form v-on:submit.prevent="submit" method="post"  action="#" role="form">
+                        <form v-on:keyup.enter.prevent="submit" method="post"  action="#" role="form">
                             <b-field v-bind:message="errors.name" v-bind:type="errors.name ? 'is-danger' : ''" label="Full Name" :label-position="labelPosition">
                                 <b-input type="text"
                                          required

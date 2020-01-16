@@ -72,6 +72,6 @@
 </script>
 <style>
     #fix-align {
-        padding: .5em 0;
+        padding: 0;
     }
 </style>

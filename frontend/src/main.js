@@ -4,6 +4,7 @@ import buefy from 'buefy'
 import router from './router'
 import 'buefy/dist/buefy.min.css';
 import Vue from 'vue'
+Vue.use(VueQuill)
 
 Vue.use(buefy, {
     defaultIconPack: 'fas',

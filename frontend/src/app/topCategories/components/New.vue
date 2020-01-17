@@ -11,10 +11,7 @@
                             <b-input placeholder="Category Title"></b-input>
                         </b-field>
 
-                        <b-field label="Description"
-                                 :label-position="labelPosition">
-                            <b-input placeholder="Category Description"></b-input>
-                        </b-field>
+                        <quill v-model="content" :config="config"></quill>
 
                         <div class="field">
                             <b-switch>Keep category private?</b-switch>
@@ -49,7 +46,7 @@
         data() {
             return {
                 file: null,
-                labelPosition: 'on-border'
+                labelPosition: 'on-border',
             }
         }
     }

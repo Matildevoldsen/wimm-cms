@@ -4,7 +4,15 @@ import buefy from 'buefy'
 import router from './router'
 import 'buefy/dist/buefy.min.css';
 import Vue from 'vue'
-Vue.use(VueQuill)
+import VueQuillEditor from 'vue-quill-editor'
+import 'highlight.js/styles/a11y-light.css';
+
+// require styles
+import 'quill/dist/quill.core.css'
+import 'quill/dist/quill.snow.css'
+import 'quill/dist/quill.bubble.css'
+
+Vue.use(VueQuillEditor, /* { default global options } */)
 
 Vue.use(buefy, {
     defaultIconPack: 'fas',

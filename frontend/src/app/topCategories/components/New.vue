@@ -30,21 +30,36 @@
                         </b-field>
 
                         <b-field class="file">
-                            <b-upload v-model="file">
-                                <a class="button is-primary">
-                                    <b-icon icon="upload"></b-icon>
-                                    <span>Upload thumbnail</span>
-                                </a>
+                            <b-upload accept="image/*" drag-drop v-model="file">
+                                <section class="section">
+                                    <div class="content has-text-centered">
+                                        <p>
+                                            <b-icon
+                                                    icon="upload"
+                                                    size="is-large">
+                                            </b-icon>
+                                        </p>
+                                        <p>Drag an image or click the button to upload</p>
+                                    </div>
+                                </section>
                             </b-upload>
-                            <span class="file-name" v-if="file">
-                                {{ file.name }}
-                            </span>
                         </b-field>
+                        <div class="tags" v-if="file">
+                                <span class="tag is-primary">{{ file.name }}
+                                    <button class="delete is-small"
+                                            type="button"
+                                            @click="deleteDropFile">
+                                    </button>
+                                </span>
+                        </div>
                         <hr/>
-                        <p>Please note that the first 160 words of your description will be visible on search engines if turned on</p><br/>
+                        <p>Please note that the first 160 words of your description will be visible on search engines if
+                            turned on</p><br/>
                         <b-field>
                             <b-button v-if="this.file && this.content && this.title" type="is-success">Send</b-button>
-                            <b-button v-if="!this.file || !this.content || !this.title" disabled type="is-danger">Please fill in all the forms</b-button>
+                            <b-button v-if="!this.file || !this.content || !this.title" disabled type="is-danger">Please
+                                fill in all the forms
+                            </b-button>
                         </b-field>
                     </section>
                 </div>
@@ -88,6 +103,11 @@
                         }
                     }
                 }
+            }
+        },
+        methods: {
+            deleteDropFile() {
+                this.file = null
             }
         },
         mounted() {

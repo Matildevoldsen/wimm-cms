@@ -21,8 +21,10 @@ Route::prefix('auth')->group(function () {
         Route::get('info', 'API\UserController@user');
         Route::get('logout', 'API\RegiSterController@logout');
 
-        Route::prefix('admin')->group(function () {
-            Route::get('stats/thisMonth', 'API\StatsController@getStatsForFullMonth');
+        Route::middleware('admin')->group(function () {
+            Route::prefix('admin')->group(function () {
+                Route::get('stats/thisMonth', 'API\StatsController@getStatsForFullMonth');
+            });
         });
     });
 });

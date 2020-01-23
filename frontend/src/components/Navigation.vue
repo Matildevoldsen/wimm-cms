@@ -12,6 +12,44 @@
         </template>
 
         <template slot="end">
+          <!-- <b-navbar-item tag="div">
+                <b-dropdown aria-role="list" position="is-bottom-left">
+                    <a
+                            class="navbar-item"
+                            slot="trigger"
+                            role="button">
+                            <span><flag iso="gb" /></span>
+                        <span style="margin-left: 3px;">English</span>
+                    </a>
+
+                    <b-dropdown-item aria-role="listitem">
+                        <span><flag iso="dk" /></span>
+                        <span style="margin-left: 3px;">Dansk</span>
+                    </b-dropdown-item>
+
+                    <b-dropdown-item aria-role="listitem">
+                        <span><flag iso="se" /></span>
+                        <span style="margin-left: 3px;">Svenska</span>
+                    </b-dropdown-item>
+
+                    <b-dropdown-item aria-role="listitem">
+                        <span><flag iso="no" /></span>
+                        <span style="margin-left: 3px;">Norgsk</span>
+                    </b-dropdown-item>
+
+                    <b-dropdown-item aria-role="listitem">
+                        <span><flag iso="es" /></span>
+                        <span style="margin-left: 3px;">Spanish</span>
+                    </b-dropdown-item>
+
+                    <b-dropdown-item aria-role="listitem">
+                        <span><flag iso="es" /></span>
+                        <span style="margin-left: 3px;">Polish</span>
+                    </b-dropdown-item>
+                    
+                </b-dropdown>
+            </b-navbar-item>-->
+
             <b-navbar-item v-if="!user.authenticated" tag="div">
                 <div class="buttons">
                     <router-link to="/register" class="button is-primary">
@@ -52,6 +90,11 @@
     import {mapState, mapActions} from 'vuex'
 
     export default {
+        data() {
+            return {
+                isPublic: true
+            }
+        },
         computed: mapState({
             user: state => state.auth.user
         }),

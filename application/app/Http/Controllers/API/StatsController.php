@@ -21,13 +21,16 @@ class StatsController extends Controller
             ->get()->count();
         $categories = DB::table('categories')->whereMonth('created_at', Carbon::now()->month)
             ->get()->count();
+        $topCategories = DB::table('top_categories')->whereMonth('created_at', Carbon::now()->month)
+            ->get()->count();
 
         if (Auth::user() && Auth::user()->admin == 1) {
             return response()->json(['data' => [
                 'statusCode' => '200',
                 'users' => $users,
                 'articles' => $articles,
-                'categories' => $categories
+                'categories' => $categories,
+                'topCategories' => $topCategories
             ]]);
         }
     }

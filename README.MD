@@ -9,4 +9,4 @@
 - Build status: not stable
 - Version: 0.1.0
 
-**Please note**: This README is a work in-progress. Wimm CMS is still very early on in development.
+**Please note**: This README is a work in-progress. Wimm CMS is still very early on in development. 

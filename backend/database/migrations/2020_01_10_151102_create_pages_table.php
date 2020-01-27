@@ -21,8 +21,8 @@ class CreatePagesTable extends Migration
             $table->string('content');
             $table->integer('layout');
             $table->boolean('is_private')->default(0);
-            $table->boolean('is_hidden_from_menu')->default(0);
-            $table->boolean('is_shown_in_footer')->default(0);
+            $table->boolean('show_in_navigation')->default(0);
+            $table->boolean('show_in_footer')->default(0);
             $table->integer('order');
             $table->integer('is_related_to')->default(0);
             $table->integer('lang_id');

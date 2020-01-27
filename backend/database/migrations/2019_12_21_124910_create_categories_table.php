@@ -20,6 +20,8 @@ class CreateCategoriesTable extends Migration
             $table->string('seo_desc');
             $table->string('thumbnail')->nullable();
             $table->string('cover');
+            $table->boolean('show_in_footer');
+            $table->boolean('show_in_navigation');
             $table->string('cover_alt');
             $table->integer('top_category_id');
             $table->string('lang')->default('en');

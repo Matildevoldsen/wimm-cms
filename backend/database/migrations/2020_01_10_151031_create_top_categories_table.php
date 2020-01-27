@@ -19,7 +19,9 @@ class CreateTopCategoriesTable extends Migration
             $table->string('description');
             $table->boolean('is_private');
             $table->boolean('has_page');
-            $table->boolean('thumbnail');
+            $table->boolean('show_in_navigation');
+            $table->boolean('show_in_footer');
+            $table->string('thumbnail');
             $table->timestamps();
         });
     }

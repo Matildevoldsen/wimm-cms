@@ -16,6 +16,7 @@ class CreateSettingsTable extends Migration
         Schema::create('settings', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('name');
+            $table->string('head'); //Excluding title, meta description, author. This is primarily used for google analytics and similar.
             $table->string('description');
             $table->string('favicon');
             $table->string('author');

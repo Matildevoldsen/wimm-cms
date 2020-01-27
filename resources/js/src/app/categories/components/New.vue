@@ -22,6 +22,17 @@
                                             :options="editorOption"></quill-editor>
                             </b-field>
 
+                            <b-field label="Over Category">
+                                <b-select placeholder="Choose Over Category">
+                                    <option
+                                        v-for="option in topCategories"
+                                        :value="option.id"
+                                        :key="option.id">
+                                        {{ option.title }}
+                                    </option>
+                                </b-select>
+                            </b-field>
+
                             <b-field v-bind:message="errors.is_private"  v-bind:type="errors.is_private ? 'is-danger' : ''">
                                 <div class="field">
                                     <b-switch v-model="is_private">Keep category private?</b-switch>
@@ -98,6 +109,7 @@
 </template>
 <script>
     import {mapActions} from 'vuex'
+    import {mapState} from "vuex";
     import hljs from 'highlight.js'
     import javascript from 'highlight.js/lib/languages/javascript';
 
@@ -164,6 +176,9 @@
                 this.thumbnail = null
             },
         },
+        computed: mapState({
+            topCategories: state => state.topCategory.topCategories.category
+        }),
         mounted() {
             hljs.registerLanguage('javascript', javascript);
         },

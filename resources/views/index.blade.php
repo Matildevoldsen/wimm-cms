@@ -4,10 +4,9 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>{{ config('app.name'); }}</title>
+    <title>{{ config('app.name') }}</title>
 
     <!-- Fonts -->
-
     <script src="https://kit.fontawesome.com/575b0d96b5.js" crossorigin="anonymous"></script>
 
     <!-- Scripts -->

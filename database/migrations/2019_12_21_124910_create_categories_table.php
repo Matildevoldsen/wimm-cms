@@ -19,13 +19,12 @@ class CreateCategoriesTable extends Migration
             $table->string('desc');
             $table->string('seo_desc');
             $table->string('thumbnail')->nullable();
-            $table->string('cover');
+            $table->boolean('is_private');
             $table->boolean('show_in_footer');
             $table->boolean('show_in_navigation');
-            $table->string('cover_alt');
+            $table->string('thumbnail_alt');
             $table->integer('top_category_id');
             $table->string('lang')->default('en');
-            $table->string('is_related_to_categories');
             $table->timestamps();
         });
     }

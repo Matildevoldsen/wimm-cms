@@ -1,0 +1,5 @@
+{
+    "require": {
+        "pragmarx/tracker": "^3.5"
+    }
+}

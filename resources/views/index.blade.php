@@ -16,6 +16,9 @@
             ]) !!};
     </script>
 
+    <meta name="theme-color" content="#FFFFFF" />
+
+
     <!-- Styles -->
     <link type="text/css" rel="stylesheet" href="{{ asset('css/app.css') }}"/>
 </head>

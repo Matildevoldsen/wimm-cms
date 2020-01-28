@@ -1,4 +1,6 @@
 const mix = require('laravel-mix');
+const WebpackShellPlugin = require('webpack-shell-plugin');
+
 
 /*
  |--------------------------------------------------------------------------
@@ -14,3 +16,15 @@ const mix = require('laravel-mix');
 mix.js('resources/js/src/main.js', 'public/js')
    .sass('resources/sass/app.scss', 'public/css');
 mix.browserSync('127.0.0.1:8000');
+/**
+* Publishing the assets
+*/
+mix.webpackConfig({
+   plugins: [
+       new WebpackShellPlugin({
+           onBuildEnd: [
+               'npx workbox injectManifest workbox-config.js'
+           ]
+       })
+   ]
+});

@@ -16,6 +16,8 @@
             ]) !!};
     </script>
 
+    <!--- PWA --->
+    <link rel="manifest" href="/manifest.json">
     <meta name="theme-color" content="#FFFFFF" />
 
 

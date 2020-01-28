@@ -25,6 +25,9 @@
     <link type="text/css" rel="stylesheet" href="{{ asset('css/app.css') }}"/>
 </head>
 <body>
+<noscript>
+    This website uses JavaScript. Please make sure it is enabled in order to continue.
+</noscript>
 <div id="app">
     <app></app>
 </div>

@@ -21,7 +21,7 @@ class CreateArticlesTable extends Migration
             $table->string('cover_alt');
             $table->string('seo_desc');
             $table->string('lang')->default('en');
-            $table->integer('category_id');
+            $table->integer('category_id')->unsigned();
             $table->string('is_related_to_articles');
             $table->timestamps();
         });

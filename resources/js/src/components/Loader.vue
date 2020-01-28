@@ -11,7 +11,7 @@
     export default {
         name: "Loader",
         props: {
-            isVisible: {type: Boolean, required: true},
+            isVisible: {type: Boolean, required: true, default: true},
             text: {type: String, required: false, default: ""},
         },
 }

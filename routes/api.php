@@ -24,6 +24,8 @@ Route::prefix('auth')->group(function () {
         Route::middleware('admin')->group(function () {
             Route::prefix('admin')->group(function () {
                 Route::post('topCategory/new', 'API\TopCategoryController@store');
+                Route::post('category/new', 'API\CategoryController@store');
+
                 Route::get('stats/thisMonth', 'API\StatsController@getStatsForFullMonth');
             });
         });

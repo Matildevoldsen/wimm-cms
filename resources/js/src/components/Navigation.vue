@@ -2,7 +2,7 @@
     <b-navbar shadow wrapper-class="container">
         <template slot="brand">
             <b-navbar-item tag="router-link" to="/">
-                Wimm CMS
+                <img src="/icons/192x192.png" style="height: 60px !important;max-height: 100px;"/>
             </b-navbar-item>
         </template>
         <template slot="start">
@@ -10,8 +10,8 @@
                 Home
             </b-navbar-item>
 
-            <template v-for="(topCategory) in topCategories">
-            <b-navbar-item v-if="topCategory.show_in_navigation" v-bind:key="topCategory" tag="div">
+            <template v-for="(index, topCategory) in topCategories">
+            <b-navbar-item v-if="topCategory.show_in_navigation" v-bind:key="index" tag="div">
                 <b-dropdown aria-role="list" position="is-bottom-left">
                     <a
                             class="navbar-item"

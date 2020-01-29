@@ -40,7 +40,7 @@
                 <router-link to="">
                     <b-menu-item label="Language Support"></b-menu-item>
                 </router-link>
-                <router-link to="">
+                <router-link to="/admin/settings/edit">
                     <b-menu-item label="Edit Site"></b-menu-item>
                 </router-link>
             </b-menu-item>

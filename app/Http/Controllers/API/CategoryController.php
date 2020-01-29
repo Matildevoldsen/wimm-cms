@@ -52,9 +52,9 @@ class CategoryController extends Controller {
         if ( $validated ) {
             $category = new Category;
             $category->title = $request->title;
-            $category->description = $request->description;
+            $category->desc = $request->description;
             $category->thumbnail_alt = $request->thumbnail_alt;
-            $category->lang = $request->lang;
+            $category->lang = $request->language;
             $category->seo_desc = $request->seo_desc;
             $category->top_category_id = $request->top_category_id;
             $category->is_private = $request->is_private;
@@ -63,7 +63,7 @@ class CategoryController extends Controller {
 
             //Upload image
             $image = $request->file( 'thumbnail' );
-            $destinationPath = 'public/thumbnail/topCategory';
+            $destinationPath = 'public/thumbnail/category';
 
             if ( $image->storeAs( "$destinationPath", $image ) ) {
                 $category->thumbnail = basename( $image . '.' .$image->getClientOriginalExtension() );
@@ -94,7 +94,7 @@ class CategoryController extends Controller {
             //Upload image
             if ($request->hasFile('thumbnail')) {
                 $image = $request->file( 'thumbnail' );
-                $destinationPath = 'public/thumbnail/topCategory';
+                $destinationPath = 'public/thumbnail/category';
 
                 Storage::delete($destinationPath . $category->thumbnail);
 

@@ -6,7 +6,7 @@
       </div>
       <div class="column is-10">
         <div class="box m-t-50">
-          <b-tabs type="is-toggled">
+          <b-tabs type="is-toggled" v-if="topCategories">
             <b-tab-item label="Category" icon="pen">
               <form action="#" method="post" enctype="multipart/form-data">
                 <b-message
@@ -35,8 +35,9 @@
                     <quill-editor ref="myTextEditor" v-model="description" :options="editorOption"></quill-editor>
                   </b-field>
 
-                  <b-field :label-position="labelPosition" label="Over Category">
-                    <b-select placeholder="Choose Over Category">
+                  <b-field v-bind:message="errors.top_category_id"
+                    v-bind:type="errors.top_category_id ? 'is-danger' : ''" :label-position="labelPosition" label="Over Category">
+                    <b-select v-model="top_category_id" placeholder="Choose Over Category">
                       <option
                         v-for="option in topCategories"
                         :value="option.id"
@@ -139,27 +140,34 @@
               </form>
             </b-tab-item>
             <b-tab-item label="Advanced" icon="tools">
-                 <b-field label="Language" :label-position="labelPosition">
-                    <b-select v-model="lang" placeholder="E.g. English">
-                      <option selected value="English">English</option>
-                    </b-select>
-                  </b-field>
+              <b-field v-bind:message="errors.lang"
+                    v-bind:type="errors.lang ? 'is-danger' : ''" label="Language" :label-position="labelPosition">
+                <b-select v-model="lang" placeholder="E.g. English">
+                  <option selected value="English">English</option>
+                </b-select>
+              </b-field>
 
-                  <b-field label="SEO Description" :label-position="labelPosition">
-                    <b-input v-model="name"></b-input>
-                  </b-field>
+              <b-field v-bind:message="errors.seo_desc"
+                    v-bind:type="errors.seo_desc ? 'is-danger' : ''" label="SEO Description" :label-position="labelPosition">
+                <b-input v-model="seo_desc"></b-input>
+              </b-field>
 
-                  <b-field label="Image Description" :label-position="labelPosition">
-                    <b-input v-model="name"></b-input>
-                  </b-field>
+              <b-field v-bind:message="errors.thumbnail_alt"
+                    v-bind:type="errors.thumbnail_alt ? 'is-danger' : ''" label="Image Description" :label-position="labelPosition">
+                <b-input v-model="thumbnail_alt"></b-input>
+              </b-field>
             </b-tab-item>
           </b-tabs>
+          <template v-if="topCategories < 1">
+            <p>To create an under category you need to make sure you've created an <router-link to="/admin/topCategories/new">category first.</router-link></p>
+          </template>
         </div>
       </div>
     </div>
   </div>
 </template>
 <script>
+import store from "../../../vuex";
 import { mapActions } from "vuex";
 import { mapState } from "vuex";
 import hljs from "highlight.js";
@@ -175,6 +183,9 @@ export default {
       show_in_footer: true,
       thumbnail: null,
       lang: "English",
+      seo_desc: "",
+      thumbnail_alt: "",
+      top_category_id: 1,
       //language: 'English',
       labelPosition: "on-border",
       description: ``,
@@ -207,10 +218,10 @@ export default {
   },
   methods: {
     ...mapActions({
-      topCategory: "topCategory/addTopCategory"
+      category: "category/addCategory"
     }),
     submit() {
-      this.topCategory({
+      this.category({
         payload: {
           title: this.title,
           description: this.description,
@@ -218,7 +229,13 @@ export default {
           has_page: this.has_page,
           is_private: this.is_private,
           show_in_footer: this.show_in_footer,
-          show_in_navigation: this.show_in_navigation
+          show_in_navigation: this.show_in_navigation,
+          language: this.lang ? this.lang : "English",
+          seo_desc: this.seo_desc
+            ? this.seo_desc
+            : this.description.replace(/(<([^>]+)>)/gi, "").substring(0, 160),
+          thumbnail_alt: this.thumbnail_alt,
+          top_category_id: this.top_category_id
         },
         context: this
       }).then(() => {
@@ -234,6 +251,10 @@ export default {
   }),
   mounted() {
     hljs.registerLanguage("javascript", javascript);
+
+    store.dispatch('topCategory/fetchTopCategories').then(() => {
+
+    });
   }
 };
 </script>

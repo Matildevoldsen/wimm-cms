@@ -34,13 +34,11 @@ export const setToken = () => {
 export const fetchTopCategories = ({commit}) => {
     return axios.get('/api/topCategory/all').then((response) => {
         commit('setTopCategories', response.data.data)
-        console.log(response)
     })
 };
 
 export const fetchTopCategory = ({commit}, {id}) => {
     return axios.get('/api/topCategory/' + id).then((response) => {
         commit('setTopCategory', response.data.data)
-        console.log(response)
     })
 };

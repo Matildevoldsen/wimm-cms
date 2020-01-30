@@ -157,7 +157,10 @@
                     },
                     context: this
                 }).then(() => {
-                    console.log(this.success)
+                    this.$wait.start("loading");
+                    store.dispatch('topCategory/fetchTopCategories').then(() => {
+                        this.$wait.end("loading");
+                    });
                 })
             },
             deleteDropFile() {

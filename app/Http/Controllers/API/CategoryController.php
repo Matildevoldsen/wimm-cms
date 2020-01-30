@@ -10,7 +10,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
 class CategoryController extends Controller {
-    public function all(/*$sort = 'DEFAULT', $where = null, $whereOperator = null, $whereValue = null*/) {
+    public function all( /*$sort = 'DEFAULT', $where = null, $whereOperator = null, $whereValue = null*/ ) {
         $categories = Category::all();
         return response()->json( ['data' => [
             'statusCode' => '200',
@@ -18,22 +18,14 @@ class CategoryController extends Controller {
         ]] );
     }
 
-    public function view($id) {
+    public function view( $id ) {
         $category = Category::find( $id );
 
         if ( $category ) {
-            if ( $category->has_page ) {
-                return response()->json( ['data' => [
-                    'statusCode' => 200,
-                    'category' => $category,
-                ]] );
-            } else {
-                return response()->json( [
-                    'errors' => [
-                        'root' => 'This top category does not have a visble page'
-                    ]
-                ] );
-            }
+            return response()->json( ['data' => [
+                'statusCode' => 200,
+                'category' => $category,
+            ]] );
         } else {
             return response()->json( [
                 'errors' => [
@@ -59,10 +51,10 @@ class CategoryController extends Controller {
 
             //Upload image
             $image = $request->file( 'thumbnail' );
-            $destinationPath = 'public/thumbnail/category';
+            $storagePath = Storage::disk('public')->put('thumbnail/category', $image);
 
-            if ( $image->storeAs( "$destinationPath", $image ) ) {
-                $category->thumbnail = basename( $image . '.' .$image->getClientOriginalExtension() );
+            if ($storagePath) {
+                $category->thumbnail = basename(basename($storagePath));
             }
 
             $category->save();
@@ -73,10 +65,10 @@ class CategoryController extends Controller {
         }
     }
 
-    public function update (UpdateTopCategoryRequest $request, $id) {
+    public function update ( UpdateTopCategoryRequest $request, $id ) {
         $validated = $request->validated();
         if ( $validated ) {
-            $category = Category::find($id);
+            $category = Category::find( $id );
             $category->title = $request->title;
             $category->description = $request->description;
             $category->thumbnail_alt = $request->thumbnail_alt;
@@ -88,14 +80,13 @@ class CategoryController extends Controller {
             $category->show_in_navigation = $request->show_in_navigation;
 
             //Upload image
-            if ($request->hasFile('thumbnail')) {
+            if ( $request->hasFile( 'thumbnail' ) ) {
+                Storage::delete('/thumbnail/category' . $category->thumbnail );
                 $image = $request->file( 'thumbnail' );
-                $destinationPath = 'public/thumbnail/category';
+                $storagePath = Storage::disk('public')->put('thumbnail/category', $image);
 
-                Storage::delete($destinationPath . $category->thumbnail);
-
-                if ( $image->storeAs( "$destinationPath", $image ) ) {
-                    $category->thumbnail = basename( $image . '.' .$image->getClientOriginalExtension() );
+                if ($storagePath) {
+                    $category->thumbnail = basename(basename($storagePath));
                 }
             }
 
@@ -107,7 +98,7 @@ class CategoryController extends Controller {
         }
     }
 
-    public function delete($id) {
-        
+    public function delete( $id ) {
+
     }
 }

@@ -1,20 +1,20 @@
 //Loader Component
 
 <template>
-    <b-loading :is-full-page="true" v-if="$wait.is('loading')" active>
-      <b-icon pack="fas" icon="cubes" id="icon-load" size="is-large" custom-class="fa-spin"></b-icon>
-      <p class="loading-text">Loading...</p>
-    </b-loading>
+  <b-loading :is-full-page="true" v-if="$wait.is('loading')" active>
+    <b-icon pack="fas" icon="cubes" id="icon-load" size="is-large" custom-class="fa-spin"></b-icon>
+    <p class="loading-text">Loading...</p>
+  </b-loading>
 </template>
 
 <script>
-    export default {
-        name: "Loader",
-        props: {
-            isVisible: {type: Boolean, required: true, default: true},
-            text: {type: String, required: false, default: ""},
-        },
-}
+export default {
+  data() {
+    return {
+      isFullPage: true
+    };
+  }
+};
 </script>
 
 <style lang="scss">

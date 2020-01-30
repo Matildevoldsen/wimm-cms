@@ -10,24 +10,23 @@
                 Home
             </b-navbar-item>
 
-            <template v-for="(index, topCategory) in topCategories">
-            <b-navbar-item v-if="topCategory.show_in_navigation" v-bind:key="index" tag="div">
-                <b-dropdown aria-role="list" position="is-bottom-left">
-                    <a
-                            class="navbar-item"
-                            slot="trigger"
-                            role="button">
-                        <span>{{topCategory.title}}</span>
-                        <b-icon icon="caret-down"></b-icon>
-                    </a>
-
-                    <b-dropdown-item aria-role="listitem">Edit Profile</b-dropdown-item>
-                    <b-dropdown-item aria-role="listitem">Change Password</b-dropdown-item>
-                    <a v-on:click.prevent="signout">
-                        <b-dropdown-item aria-role="listitem">Sign Out</b-dropdown-item>
-                    </a>
-                </b-dropdown>
-            </b-navbar-item>
+            <template v-for="(topCategory, index) in topCategories">
+                <b-navbar-item v-if="topCategory.show_in_navigation" v-bind:key="index" tag="div">
+                    <b-dropdown aria-role="list" position="is-bottom-left">
+                        <a
+                                class="navbar-item"
+                                slot="trigger"
+                                role="button">
+                            <span>{{topCategory.title}}</span>
+                            <b-icon icon="caret-down"></b-icon>
+                        </a>
+                        <template v-for="(category, index) in categories">
+                            <template v-if="category.top_category_id == topCategory.id && category.show_in_navigation">
+                                <b-dropdown-item v-bind:key="index" aria-role="listitem">{{category.title}}</b-dropdown-item>
+                            </template>
+                        </template>
+                    </b-dropdown>
+                </b-navbar-item>
             </template>
         </template>
 
@@ -117,7 +116,8 @@
         },
         computed: mapState({
             user: state => state.auth.user,
-            topCategories: state => state.topCategory.topCategories.category
+            topCategories: state => state.topCategory.topCategories.category,
+            categories: state => state.category.categories.category
         }),
         methods: {
             ...mapActions({

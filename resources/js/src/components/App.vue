@@ -11,12 +11,17 @@ import store from "../vuex";
 export default {
   data() {
     return {
-      isFullPage: true
+      
     };
   },
   mounted() {
     this.$wait.start("loading");
     store.dispatch("topCategory/fetchTopCategories").then(() => {
+        this.$wait.end("loading");
+    });
+
+    this.$wait.start("loading");
+    store.dispatch("category/fetchCategories").then(() => {
         this.$wait.end("loading");
     });
 

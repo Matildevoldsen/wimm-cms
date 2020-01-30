@@ -26,10 +26,6 @@ class TopCategoryController extends Controller {
                 return response()->json( ['data' => [
                     'statusCode' => 200,
                     'category' => $category,
-                    'readable_dates' => [
-                        'updated_at' => $category->updated_at->diffForHumans(),
-                        'created_at' => $category->created_at->diffForHumans(),
-                    ]
                 ]] );
             } else {
                 return response()->json( [

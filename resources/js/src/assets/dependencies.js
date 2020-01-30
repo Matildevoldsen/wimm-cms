@@ -20,9 +20,13 @@ import '@fortawesome/fontawesome-free/js/all.js'
 import 'codemirror/lib/codemirror.css'
 
 import VueWait from 'vue-wait'
-
+import VueMoment from 'vue-moment'
+import moment from 'moment-timezone'
+ 
+Vue.use(VueMoment, {
+    moment,
+})
 Vue.use(VueWait)
-
 // you can set default global options and events when use
 Vue.use(VueCodemirror, /* { 
   options: { theme: 'base16-dark', ... },

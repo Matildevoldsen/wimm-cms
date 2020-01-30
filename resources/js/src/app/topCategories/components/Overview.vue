@@ -32,11 +32,11 @@
                 </b-table-column>
 
                 <b-table-column field="created_at" label="Created At" sortable centered>
-                     {{ props.row.created_at }}
+                     {{ moment(props.row.created_at).fromNow() }}
                 </b-table-column>
 
                 <b-table-column field="updated_at" label="Updated at" sortable centered>
-                    {{ props.row.updated_at}}
+                    {{ moment(props.row.updated_at).fromNow() }}
                 </b-table-column>
 
                 <b-table-column label="Modify" width="500">
@@ -52,6 +52,7 @@
 <script>
     import {mapState} from "vuex";
     import store from "../../../vuex";
+    import moment from 'moment'
 
     export default {
         data() {
@@ -61,7 +62,8 @@
                 sortOrder: 'id',
                 defaultSortOrder: 'id',
                 page: 1,
-                perPage: 10
+                perPage: 10,
+                moment: moment
             }
         },
         methods: {

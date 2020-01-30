@@ -35,16 +35,16 @@ export const setToken = () => {
     setHttpToken(token.slice(1, -1))
 }
 
-export const fetchTopCategories = ({commit}) => {
+export const fetchCategories = ({commit}) => {
     return axios.get('/api/category/all').then((response) => {
-        commit('setTopCategories', response.data.data)
+        commit('setCategories', response.data.data)
         console.log(response)
     })
 };
 
-export const fetchTopCategory = ({commit}, {id}) => {
+export const fetchCategory = ({commit}, {id}) => {
     return axios.get('/api/category/' + id).then((response) => {
-        commit('setTopCategory', response.data.data)
+        commit('setCategory', response.data.data)
         console.log(response)
     })
 };

@@ -13,9 +13,15 @@ import 'quill/dist/quill.bubble.css'
 import 'buefy/dist/buefy.min.css';
 
 import VueCodemirror from 'vue-codemirror'
+import '@fortawesome/fontawesome-free/css/all.css'
+import '@fortawesome/fontawesome-free/js/all.js'
 
 // require styles
 import 'codemirror/lib/codemirror.css'
+
+import VueWait from 'vue-wait'
+
+Vue.use(VueWait)
 
 // you can set default global options and events when use
 Vue.use(VueCodemirror, /* { 

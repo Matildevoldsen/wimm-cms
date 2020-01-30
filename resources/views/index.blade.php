@@ -6,9 +6,6 @@
 
     <title>{{ config('app.name') }}</title>
 
-    <!-- Fonts -->
-    <script src="https://kit.fontawesome.com/575b0d96b5.js" crossorigin="anonymous"></script>
-
     <!-- Scripts -->
     <script type="text/javascript">
         window.Laravel = {!! json_encode([

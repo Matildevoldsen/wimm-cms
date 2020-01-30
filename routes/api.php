@@ -34,3 +34,6 @@ Route::prefix('auth')->group(function () {
 
 Route::get('topCategory/all', 'API\TopCategoryController@all');
 Route::get('topCategory/{id}', 'API\TopCategoryController@view');
+
+Route::get('category/all', 'API\CategoryController@all');
+Route::get('category/{id}', 'API\CategoryController@view');

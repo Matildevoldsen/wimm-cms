@@ -78,8 +78,9 @@
             topCategories: state => state.topCategory.topCategories.category
         }),
         mounted() {
+            this.$wait.start("loading");
             store.dispatch('topCategory/fetchTopCategories').then(() => {
-
+                this.$wait.end("loading");
             });
         }
     }

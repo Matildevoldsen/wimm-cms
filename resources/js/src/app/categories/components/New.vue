@@ -250,10 +250,11 @@ export default {
     topCategories: state => state.topCategory.topCategories.category
   }),
   mounted() {
+    this.$wait.start("loading");
     hljs.registerLanguage("javascript", javascript);
 
     store.dispatch('topCategory/fetchTopCategories').then(() => {
-
+      this.$wait.end("loading");
     });
   }
 };

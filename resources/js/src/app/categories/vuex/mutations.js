@@ -1,4 +1,4 @@
-export const setategories = (state, data) => {
+export const setCategories = (state, data) => {
     state.categories = data
 };
 

@@ -11,7 +11,7 @@ This file outlines the planned features and for which stages.
 - Lazy-load.
 - Stats: See how many comments, articles, pages, top categories, under categories that's been made in the past month.
 - Sitemap generator (daily auto generation)
-- WYSIWIG editor with syntax highlight and ability to insert image into it without having to store it on the server
+- WYSIWIG editor with syntax highlight and ability to insert image into it without having to store it on the server.
 
 ## Stage 2
 

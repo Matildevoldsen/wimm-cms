@@ -3,7 +3,7 @@ import router from './router'
 import localforage from 'localforage'
 import Vue from 'vue'
 import './bootstrap'
-
+import VueWait from 'vue-wait';
 import './assets/dependencies';
 
 localforage.config({
@@ -23,22 +23,17 @@ Vue.component('navigation', require('./components/Navigation.vue').default);
 Vue.component('AdminMenu', require('./components/AdminMenu.vue').default);
 Vue.component('Loader', require('./components/Loader.vue').default);
 
-store.dispatch('topCategory/fetchTopCategories').then(() => {
-
-});
-
-store.dispatch('auth/setToken').then(() => {
-    store.dispatch('auth/fetchUser').catch(() => {
-        store.dispatch('auth/clearAuth')
-        router.replace({name: 'login'})
-    })
-}).catch(() => {
-    store.dispatch('auth/clearAuth')
-});
-
 new Vue({
     render: h => h(App),
     store,
     router,
+    wait: new VueWait({
+        registerComponent: true,     // Registers `v-wait` component
+        componentName: 'v-wait',     // <v-wait> component name, you can set `my-loader` etc.
+
+        registerDirective: true,     // Registers `v-wait` directive
+        directiveName: 'wait',       // <span v-wait /> directive name, you can set `my-loader` etc.
+
+    }),
     components: {App}
 }).$mount('#app');

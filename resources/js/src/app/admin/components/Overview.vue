@@ -45,7 +45,9 @@
 
     export default {
         mounted() {
+            this.$wait.start("loading");
             store.dispatch('admin/fetchStats').then(() => {
+                this.$wait.end("loading");
             });
         },
         computed: mapState({

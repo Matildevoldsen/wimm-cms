@@ -1,8 +1,16 @@
 import axios from 'axios';
 import FormData from 'form-data'
-import {setHttpToken} from '../../../helpers/index'
+import localforage from 'localforage'
+import {
+    setHttpToken
+} from '../../../helpers/index'
 
-export const addCategory = ({dispatch}, {payload, context}) => {
+export const addCategory = ({
+    dispatch
+}, {
+    payload,
+    context
+}) => {
     dispatch('setToken')
     let data = new FormData()
     data.append('title', payload.title)
@@ -20,14 +28,14 @@ export const addCategory = ({dispatch}, {payload, context}) => {
 
     axios.post('/api/auth/admin/category/new', data, {
         headers: {
-          'accept': 'application/json',
-          'Content-Type': `multipart/form-data; boundary=${data._boundary}`,
+            'accept': 'application/json',
+            'Content-Type': `multipart/form-data; boundary=${data._boundary}`,
         }
-      }).then((response) => {
-            context.success = response.data.data
-        }).catch((error) => {
-            context.errors = error.response.data.errors
-        });
+    }).then((response) => {
+        localforage.setItem('intended', response.data.data.id)
+    }).catch((error) => {
+        context.errors = error.response.data.errors
+    });
 };
 
 export const setToken = () => {
@@ -35,16 +43,18 @@ export const setToken = () => {
     setHttpToken(token.slice(1, -1))
 }
 
-export const fetchCategories = ({commit}) => {
+export const fetchCategories = ({
+    commit
+}) => {
     return axios.get('/api/category/all').then((response) => {
         commit('setCategories', response.data.data)
-        console.log(response)
     })
 };
 
-export const fetchCategory = ({commit}, {id}) => {
+export const fetchCategory = ({
+    commit
+}, id) => {
     return axios.get('/api/category/' + id).then((response) => {
         commit('setCategory', response.data.data)
-        console.log(response)
     })
 };

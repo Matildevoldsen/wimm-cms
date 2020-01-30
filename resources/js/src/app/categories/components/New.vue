@@ -35,8 +35,12 @@
                     <quill-editor ref="myTextEditor" v-model="description" :options="editorOption"></quill-editor>
                   </b-field>
 
-                  <b-field v-bind:message="errors.top_category_id"
-                    v-bind:type="errors.top_category_id ? 'is-danger' : ''" :label-position="labelPosition" label="Over Category">
+                  <b-field
+                    v-bind:message="errors.top_category_id"
+                    v-bind:type="errors.top_category_id ? 'is-danger' : ''"
+                    :label-position="labelPosition"
+                    label="Over Category"
+                  >
                     <b-select v-model="top_category_id" placeholder="Choose Over Category">
                       <option
                         v-for="option in topCategories"
@@ -140,26 +144,41 @@
               </form>
             </b-tab-item>
             <b-tab-item label="Advanced" icon="tools">
-              <b-field v-bind:message="errors.lang"
-                    v-bind:type="errors.lang ? 'is-danger' : ''" label="Language" :label-position="labelPosition">
+              <b-field
+                v-bind:message="errors.lang"
+                v-bind:type="errors.lang ? 'is-danger' : ''"
+                label="Language"
+                :label-position="labelPosition"
+              >
                 <b-select v-model="lang" placeholder="E.g. English">
                   <option selected value="English">English</option>
                 </b-select>
               </b-field>
 
-              <b-field v-bind:message="errors.seo_desc"
-                    v-bind:type="errors.seo_desc ? 'is-danger' : ''" label="SEO Description" :label-position="labelPosition">
+              <b-field
+                v-bind:message="errors.seo_desc"
+                v-bind:type="errors.seo_desc ? 'is-danger' : ''"
+                label="SEO Description"
+                :label-position="labelPosition"
+              >
                 <b-input v-model="seo_desc"></b-input>
               </b-field>
 
-              <b-field v-bind:message="errors.thumbnail_alt"
-                    v-bind:type="errors.thumbnail_alt ? 'is-danger' : ''" label="Image Description" :label-position="labelPosition">
+              <b-field
+                v-bind:message="errors.thumbnail_alt"
+                v-bind:type="errors.thumbnail_alt ? 'is-danger' : ''"
+                label="Image Description"
+                :label-position="labelPosition"
+              >
                 <b-input v-model="thumbnail_alt"></b-input>
               </b-field>
             </b-tab-item>
           </b-tabs>
           <template v-if="topCategories < 1">
-            <p>To create an under category you need to make sure you've created an <router-link to="/admin/topCategories/new">category first.</router-link></p>
+            <p>
+              To create an under category you need to make sure you've created an
+              <router-link to="/admin/topCategories/new">category first.</router-link>
+            </p>
           </template>
         </div>
       </div>
@@ -170,6 +189,7 @@
 import store from "../../../vuex";
 import { mapActions } from "vuex";
 import { mapState } from "vuex";
+import { isEmpty } from 'lodash'
 import hljs from "highlight.js";
 import javascript from "highlight.js/lib/languages/javascript";
 
@@ -239,7 +259,21 @@ export default {
         },
         context: this
       }).then(() => {
-        console.log(this.success);
+        this.$wait.start("loading");
+        store.dispatch("category/fetchCategories").then(() => {
+            this.$wait.end("loading");
+        });
+
+        const getToken = localStorage.getItem('localforage/wimm_cms/intended');
+
+        if (!isEmpty(getToken)) {
+          this.$buefy.snackbar.open({
+            message: 'Your category is successfully created!',
+            type: 'is-success',
+            position: 'is-top',
+          })
+          this.$router.push('/category/' + getToken)
+        }
       });
     },
     deleteDropFile() {

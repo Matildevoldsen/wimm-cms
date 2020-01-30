@@ -22,7 +22,7 @@
                         </a>
                         <template v-for="(category, index) in categories">
                             <template v-if="category.top_category_id == topCategory.id && category.show_in_navigation">
-                                <b-dropdown-item v-bind:key="index" aria-role="listitem">{{category.title}}</b-dropdown-item>
+                                    <router-link v-bind:key="index"  class="dropdown-item" :to="'/category/' + category.id" aria-role="listitem">{{category.title}}</router-link>
                             </template>
                         </template>
                     </b-dropdown>
@@ -111,7 +111,7 @@
     export default {
         data() {
             return {
-                isPublic: true
+                isPublic: true,
             }
         },
         computed: mapState({

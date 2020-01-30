@@ -50,7 +50,7 @@ export default [
         }
     },
     {
-        path: '/category/:id-:slug',
+        path: '/category/:id',
         component: View,
         name: 'view.category',
         meta: {

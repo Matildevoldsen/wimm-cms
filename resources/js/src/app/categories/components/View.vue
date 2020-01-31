@@ -12,6 +12,7 @@
               <div class="media">
                 <div class="media-content has-text-centered">
                   <p class="title article-title">{{ category.title }}</p>
+                  <span class="tag is-rounded">{{ moment(category.created_at).fromNow() }}</span>
                 </div>
               </div>
               <div class="content article-body">
@@ -36,7 +37,7 @@ import moment from "moment";
 export default {
   data() {
     return {
-
+      moment: moment
     };
   },
   computed: mapState({
@@ -51,9 +52,9 @@ export default {
   watch: {
     '$route.params': {
         handler(params) {
-            this.$wait.start("loading");
             store.dispatch("category/fetchCategory", params.id).then(() => {
               this.$wait.end("loading");
+              $( ".dropdown-menu" ).hide();
             });
         },
         immediate: true,

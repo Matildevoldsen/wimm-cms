@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div v-if="category">
     <section :style="'background-image: url(/storage/thumbnail/category/' + category.thumbnail + ');'" class="hero is-info is-medium is-bold">
       <div class="hero-body"></div>
     </section>
@@ -17,6 +17,9 @@
               <div class="content article-body">
                 <div v-html="category.desc"></div>
                 <hr />
+                <template>
+                <!-- Fetch Articles in here -->
+                </template>
               </div>
             </div>
           </div>
@@ -32,7 +35,9 @@ import moment from "moment";
 
 export default {
   data() {
-    return {};
+    return {
+
+    };
   },
   computed: mapState({
     category: state => state.category.category.category
@@ -42,7 +47,18 @@ export default {
     store.dispatch("category/fetchCategory", this.$route.params.id).then(() => {
       this.$wait.end("loading");
     });
-  }
+  },
+  watch: {
+    '$route.params': {
+        handler(params) {
+            this.$wait.start("loading");
+            store.dispatch("category/fetchCategory", params.id).then(() => {
+              this.$wait.end("loading");
+            });
+        },
+        immediate: true,
+    }
+}
 };
 </script>
 <style>

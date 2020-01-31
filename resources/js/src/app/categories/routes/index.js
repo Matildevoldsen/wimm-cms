@@ -53,6 +53,7 @@ export default [
         path: '/category/:id',
         component: View,
         name: 'view.category',
+        props: true,
         meta: {
             title: 'View Category',
             guest: false,

@@ -9,24 +9,25 @@
             <b-navbar-item tag="router-link" to="/">
                 Home
             </b-navbar-item>
-
-            <template v-for="(topCategory, index) in topCategories">
-                <b-navbar-item v-if="topCategory.show_in_navigation" v-bind:key="index" tag="div">
-                    <b-dropdown aria-role="list" position="is-bottom-left">
-                        <a
-                                class="navbar-item"
-                                slot="trigger"
-                                role="button">
-                            <span>{{topCategory.title}}</span>
-                            <b-icon icon="caret-down"></b-icon>
-                        </a>
-                        <template v-for="(category, index) in categories">
-                            <template v-if="category.top_category_id == topCategory.id && category.show_in_navigation">
-                                    <router-link v-bind:key="index"  class="dropdown-item" :to="'/category/' + category.id" aria-role="listitem">{{category.title}}</router-link>
+            <template v-if="topCategories && categories">
+                <template v-for="(topCategory, index) in topCategories">
+                    <b-navbar-item v-if="topCategory.show_in_navigation" v-bind:key="index" tag="div">
+                        <b-dropdown aria-role="list" position="is-bottom-left">
+                            <a
+                                    class="navbar-item"
+                                    slot="trigger"
+                                    role="button">
+                                <span>{{topCategory.title}}</span>
+                                <b-icon icon="caret-down"></b-icon>
+                            </a>
+                            <template v-for="(category, index) in categories">
+                                <template v-if="category.top_category_id == topCategory.id && category.show_in_navigation">
+                                        <router-link v-bind:key="index"  class="dropdown-item" :to="'/category/' + category.id" aria-role="listitem">{{category.title}}</router-link>
+                                </template>
                             </template>
-                        </template>
-                    </b-dropdown>
-                </b-navbar-item>
+                        </b-dropdown>
+                    </b-navbar-item>
+                </template>
             </template>
         </template>
 

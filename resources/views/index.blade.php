@@ -26,7 +26,7 @@
     This website uses JavaScript. Please make sure it is enabled in order to continue.
 </noscript>
 <div id="app">
-    <app></app>
+    <App></App>
 </div>
 <script type="text/javascript" src="{{ mix('js/main.js') }}"></script>
 </body>

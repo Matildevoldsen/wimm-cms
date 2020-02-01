@@ -20,6 +20,9 @@ class CreateArticlesTable extends Migration
             $table->string('cover');
             $table->string('cover_alt');
             $table->string('seo_desc');
+            $table->boolean('is_private');
+            $table->boolean('show_in_footer');
+            $table->boolean('show_in_navigation');
             $table->string('lang')->default('en');
             $table->integer('category_id')->unsigned();
             $table->string('is_related_to_articles');

@@ -25,7 +25,7 @@
                     <b-menu-item label="Overview"></b-menu-item>
                 </router-link>
                 <router-link to="/admin/category/new">
-                    <b-menu-item label="New Page"></b-menu-item>
+                    <b-menu-item label="New Category"></b-menu-item>
                 </router-link>
             </b-menu-item>
             <b-menu-item label="Articles">

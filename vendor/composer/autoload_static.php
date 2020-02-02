@@ -54,6 +54,10 @@ class ComposerStaticInit281b727d0c2ef35f774c080df26321f6
             'phpseclib\\' => 10,
             'phpDocumentor\\Reflection\\' => 25,
         ),
+        'b' => 
+        array (
+            'betterapp\\LaravelDbEncrypter\\' => 29,
+        ),
         'X' => 
         array (
             'XdgBaseDir\\' => 11,
@@ -193,6 +197,10 @@ class ComposerStaticInit281b727d0c2ef35f774c080df26321f6
             0 => __DIR__ . '/..' . '/phpdocumentor/reflection-common/src',
             1 => __DIR__ . '/..' . '/phpdocumentor/reflection-docblock/src',
             2 => __DIR__ . '/..' . '/phpdocumentor/type-resolver/src',
+        ),
+        'betterapp\\LaravelDbEncrypter\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/betterapp/laravel-db-encrypter/src',
         ),
         'XdgBaseDir\\' => 
         array (
@@ -541,6 +549,10 @@ class ComposerStaticInit281b727d0c2ef35f774c080df26321f6
         'App\\Http\\Middleware\\TrimStrings' => __DIR__ . '/../..' . '/app/Http/Middleware/TrimStrings.php',
         'App\\Http\\Middleware\\TrustProxies' => __DIR__ . '/../..' . '/app/Http/Middleware/TrustProxies.php',
         'App\\Http\\Middleware\\VerifyCsrfToken' => __DIR__ . '/../..' . '/app/Http/Middleware/VerifyCsrfToken.php',
+        'App\\Http\\Requests\\Api\\FormRequest' => __DIR__ . '/../..' . '/app/Http/Requests/API/FormRequest.php',
+        'App\\Http\\Requests\\StoreArticleRequest' => __DIR__ . '/../..' . '/app/Http/Requests/StoreArticleRequest.php',
+        'App\\Http\\Requests\\StoreTopCategoryRequest' => __DIR__ . '/../..' . '/app/Http/Requests/StoreTopCategoryRequest.php',
+        'App\\Http\\Requests\\UpdateTopCategoryRequest' => __DIR__ . '/../..' . '/app/Http/Requests/UpdateTopCategoryRequest.php',
         'App\\Page' => __DIR__ . '/../..' . '/app/Page.php',
         'App\\Providers\\AppServiceProvider' => __DIR__ . '/../..' . '/app/Providers/AppServiceProvider.php',
         'App\\Providers\\AuthServiceProvider' => __DIR__ . '/../..' . '/app/Providers/AuthServiceProvider.php',
@@ -4789,6 +4801,7 @@ class ComposerStaticInit281b727d0c2ef35f774c080df26321f6
         'Whoops\\Util\\SystemFacade' => __DIR__ . '/..' . '/filp/whoops/src/Whoops/Util/SystemFacade.php',
         'Whoops\\Util\\TemplateHelper' => __DIR__ . '/..' . '/filp/whoops/src/Whoops/Util/TemplateHelper.php',
         'XdgBaseDir\\Xdg' => __DIR__ . '/..' . '/dnoegel/php-xdg-base-dir/src/Xdg.php',
+        'betterapp\\LaravelDbEncrypter\\Traits\\EncryptableDbAttribute' => __DIR__ . '/..' . '/betterapp/laravel-db-encrypter/src/Traits/EncryptableDbAttribute.php',
         'phpDocumentor\\Reflection\\DocBlock' => __DIR__ . '/..' . '/phpdocumentor/reflection-docblock/src/DocBlock.php',
         'phpDocumentor\\Reflection\\DocBlockFactory' => __DIR__ . '/..' . '/phpdocumentor/reflection-docblock/src/DocBlockFactory.php',
         'phpDocumentor\\Reflection\\DocBlockFactoryInterface' => __DIR__ . '/..' . '/phpdocumentor/reflection-docblock/src/DocBlockFactoryInterface.php',

@@ -4,8 +4,68 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "23d06ab2e21d1324652025df7a1860b1",
+    "content-hash": "b276fff442db7cf065af58b2544cb403",
     "packages": [
+        {
+            "name": "betterapp/laravel-db-encrypter",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/betterapp/laravel-db-encrypter.git",
+                "reference": "69386c5c8b2d48ddea949a2b07078cd0e85a7c63"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/betterapp/laravel-db-encrypter/zipball/69386c5c8b2d48ddea949a2b07078cd0e85a7c63",
+                "reference": "69386c5c8b2d48ddea949a2b07078cd0e85a7c63",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.1"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "betterapp\\LaravelDbEncrypter\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Daniel Czestki",
+                    "email": "daniel@betterapp.net",
+                    "homepage": "https://github.com/betterapp",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Provides database model attribute encryption/decryption",
+            "keywords": [
+                "attribute",
+                "database",
+                "database encrypter",
+                "database encryption",
+                "decrypt",
+                "decrypted",
+                "decryption",
+                "eloquent",
+                "encrypt",
+                "encrypter",
+                "encryption",
+                "laravel",
+                "laravel attribute encrypter",
+                "laravel attribute encryption",
+                "laravel database encrypter",
+                "laravel database encryption",
+                "laravel db encrypter",
+                "laravel db encryption",
+                "laravel model encrypter",
+                "laravel model encryption"
+            ],
+            "time": "2020-01-22T11:21:41+00:00"
+        },
         {
             "name": "defuse/php-encryption",
             "version": "v2.2.1",
@@ -6089,7 +6149,9 @@
     ],
     "aliases": [],
     "minimum-stability": "dev",
-    "stability-flags": [],
+    "stability-flags": {
+        "betterapp/laravel-db-encrypter": 20
+    },
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {

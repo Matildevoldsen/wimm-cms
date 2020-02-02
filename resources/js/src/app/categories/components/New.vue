@@ -23,7 +23,7 @@
                     label="Title"
                     :label-position="labelPosition"
                   >
-                    <b-input v-model="title" placeholder="Category Title"></b-input>
+                    <b-input required v-model="title" placeholder="Category Title"></b-input>
                   </b-field>
 
                   <b-field
@@ -41,7 +41,7 @@
                     :label-position="labelPosition"
                     label="Over Category"
                   >
-                    <b-select v-model="top_category_id" placeholder="Choose Over Category">
+                    <b-select required v-model="top_category_id" placeholder="Choose Over Category">
                       <option
                         v-for="option in topCategories"
                         :value="option.id"
@@ -74,15 +74,6 @@
                   >
                     <div class="field">
                       <b-switch v-model="show_in_footer">Show this in the footer?</b-switch>
-                    </div>
-                  </b-field>
-
-                  <b-field
-                    v-bind:message="errors.has_page"
-                    v-bind:type="errors.has_page ? 'is-danger' : ''"
-                  >
-                    <div class="field">
-                      <b-switch v-model="has_page">Show the page for this category?</b-switch>
                     </div>
                   </b-field>
 
@@ -124,15 +115,14 @@
                                 </b-select>
                   </b-field>-->
                   <hr />
-                  <br />
                   <b-field>
                     <b-button
-                      v-if="this.thumbnail && this.description && this.title"
+                      v-if="this.thumbnail && this.description && this.title && this.thumbnail_alt"
                       v-on:click.stop="submit"
                       type="is-success"
                     >Send</b-button>
                     <b-button
-                      v-if="!this.thumbnail || !this.description || !this.title"
+                      v-if="!this.thumbnail || !this.description || !this.title && !this.thumbnail_alt"
                       disabled
                       type="is-danger"
                     >
@@ -170,8 +160,25 @@
                 label="Image Description"
                 :label-position="labelPosition"
               >
-                <b-input v-model="thumbnail_alt"></b-input>
+                <b-input required v-model="thumbnail_alt"></b-input>
               </b-field>
+
+              <hr />
+                  <b-field>
+                    <b-button
+                      v-if="this.thumbnail && this.description && this.title && this.thumbnail_alt"
+                      v-on:click.stop="submit"
+                      type="is-success"
+                    >Send</b-button>
+                    <b-button
+                      v-if="!this.thumbnail || !this.description || !this.title || !this.thumbnail_alt"
+                      disabled
+                      type="is-danger"
+                    >
+                      Please
+                      fill in all the forms
+                    </b-button>
+                  </b-field>
             </b-tab-item>
           </b-tabs>
           <template v-if="topCategories < 1">
@@ -197,7 +204,6 @@ export default {
   data() {
     return {
       title: null,
-      has_page: false,
       is_private: false,
       show_in_navigation: true,
       show_in_footer: true,
@@ -246,7 +252,6 @@ export default {
           title: this.title,
           description: this.description,
           thumbnail: this.thumbnail,
-          has_page: this.has_page,
           is_private: this.is_private,
           show_in_footer: this.show_in_footer,
           show_in_navigation: this.show_in_navigation,

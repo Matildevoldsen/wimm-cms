@@ -157,10 +157,7 @@
                     },
                     context: this
                 }).then(() => {
-                    this.$wait.start("loading");
-                    store.dispatch('topCategory/fetchTopCategories').then(() => {
-                        this.$wait.end("loading");
-                    });
+
                 })
             },
             deleteDropFile() {

@@ -115,15 +115,14 @@
                                 </b-select>
                   </b-field>-->
                   <hr />
-                  <br />
                   <b-field>
                     <b-button
-                      v-if="this.thumbnail && this.description && this.title"
+                      v-if="this.thumbnail && this.description && this.title && this.thumbnail_alt"
                       v-on:click.stop="submit"
                       type="is-success"
                     >Send</b-button>
                     <b-button
-                      v-if="!this.thumbnail || !this.description || !this.title"
+                      v-if="!this.thumbnail || !this.description || !this.title || !this.thumbnail_alt"
                       disabled
                       type="is-danger"
                     >
@@ -142,7 +141,7 @@
                 :label-position="labelPosition"
               >
                 <b-select v-model="lang" placeholder="E.g. English">
-                  <option selected value="English">English</option>
+                  <option selected value="1">English</option>
                 </b-select>
               </b-field>
 
@@ -163,6 +162,22 @@
               >
                 <b-input v-model="thumbnail_alt"></b-input>
               </b-field>
+              <hr />
+                  <b-field>
+                    <b-button
+                      v-if="this.thumbnail && this.description && this.title && this.thumbnail_alt"
+                      v-on:click.stop="submit"
+                      type="is-success"
+                    >Send</b-button>
+                    <b-button
+                      v-if="!this.thumbnail || !this.description || !this.title || !this.thumbnail_alt"
+                      disabled
+                      type="is-danger"
+                    >
+                      Please
+                      fill in all the forms
+                    </b-button>
+                  </b-field>
             </b-tab-item>
           </b-tabs>
           <template v-if="categories < 1">
@@ -192,7 +207,7 @@ export default {
       show_in_navigation: true,
       show_in_footer: true,
       thumbnail: null,
-      lang: "English",
+      lang: '',
       seo_desc: "",
       thumbnail_alt: "",
       category_id: 1,
@@ -227,8 +242,11 @@ export default {
     };
   },
   methods: {
+    ...mapActions({
+      article: "article/addArticle"
+    }),
     submit() {
-      this.category({
+      this.article({
         payload: {
           title: this.title,
           description: this.description,
@@ -246,11 +264,6 @@ export default {
         },
         context: this
       }).then(() => {
-        this.$wait.start("loading");
-        store.dispatch("category/fetchCategories").then(() => {
-            this.$wait.end("loading");
-        });
-
         const getToken = localStorage.getItem('localforage/wimm_cms/intended');
 
         if (!isEmpty(getToken)) {
@@ -259,7 +272,7 @@ export default {
             type: 'is-success',
             position: 'is-top',
           })
-          this.$router.push('/category/' + getToken)
+          this.$router.push('/article/' + getToken)
         }
       });
     },

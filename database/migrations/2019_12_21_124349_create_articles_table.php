@@ -23,9 +23,9 @@ class CreateArticlesTable extends Migration
             $table->boolean('is_private');
             $table->boolean('show_in_footer');
             $table->boolean('show_in_navigation');
-            $table->string('lang')->default('en');
+            $table->integer('lang');
             $table->integer('category_id')->unsigned();
-            $table->string('is_related_to_articles');
+            $table->string('is_related_to_articles')->nullable();
             $table->timestamps();
         });
     }

@@ -28,7 +28,6 @@ class StoreArticleRequest extends FormRequest
             'description' => 'required|min:20',
             'thumbnail' => 'required|image',
             'thumbnail_alt' => 'required',
-            'has_page' => 'required',
             'is_private' => 'required',
             'show_in_navigation' => 'required',
             'show_in_footer' => 'required'

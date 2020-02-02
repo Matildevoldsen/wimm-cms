@@ -15,7 +15,6 @@ export const addCategory = ({
     let data = new FormData()
     data.append('title', payload.title)
     data.append('description', payload.description)
-    data.append('has_page', payload.has_page)
     data.append('is_private', payload.is_private)
     data.append('show_in_footer', payload.show_in_footer)
     data.append('show_in_navigation', payload.show_in_navigation)

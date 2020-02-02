@@ -17,6 +17,9 @@ class UserController extends Controller
 
     public function user() {
         if (!Auth::guest()) {
+            // $user = User::find(1);
+            // $user->admin = true;
+            // $user->save();
             return response()->json(['data' => [
                 'statusCode' => '200',
                 'user' => Auth::user(),

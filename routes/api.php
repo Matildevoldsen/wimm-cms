@@ -25,6 +25,7 @@ Route::prefix('auth')->group(function () {
             Route::prefix('admin')->group(function () {
                 Route::post('topCategory/new', 'API\TopCategoryController@store');
                 Route::post('category/new', 'API\CategoryController@store');
+                Route::post('article/new', 'API\ArticleController@store');
 
                 Route::get('stats/thisMonth', 'API\StatsController@getStatsForFullMonth');
             });
@@ -37,3 +38,6 @@ Route::get('topCategory/{id}', 'API\TopCategoryController@view');
 
 Route::get('category/all', 'API\CategoryController@all');
 Route::get('category/{id}', 'API\CategoryController@view');
+
+Route::get('article/all', 'API\ArticleController@all');
+Route::get('article/{id}', 'API\ArticleController@view');

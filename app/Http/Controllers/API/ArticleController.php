@@ -38,25 +38,26 @@ class ArticleController extends Controller
     public function store(StoreArticleRequest $request) {
         $validated = $request->validated();
         if ( $validated ) {
-            $article = new Article;
+            $article = new Article; 
             $article->title = $request->title;
-            $article->description = $request->description;
-            $article->thumbnail_alt = $request->thumbnail_alt;
-            $article->lang = $request->lang;
+            $article->content = $request->description;
+            $article->cover_alt = $request->thumbnail_alt;
+            $article->lang = $request->language;
             $article->seo_desc = $request->seo_desc;
-            $article->top_article_id = $request->top_article_id;
             $article->is_private = $request->is_private;
             $article->show_in_footer = $request->show_in_footer;
             $article->show_in_navigation = $request->show_in_navigation;
+            $article->category_id = $request->category_id;
 
             $image = $request->file( 'thumbnail' );
             $storagePath = Storage::disk('public')->put('thumbnail/article', $image);
 
             if ($storagePath) {
-                $article->thumbnail = basename(basename($storagePath));
+                $article->cover = basename(basename($storagePath));
             }
 
             $article->save();
+            $article->category()->sync($request->category_id, false);
 
             return response()->json( [
                 'data' => $article,

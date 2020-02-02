@@ -4,9 +4,8 @@ namespace App\Http\Controllers\API;
 
 use App\Category;
 use App\Http\Controllers\Controller;
-use App\Http\Requests\StoreTopCategoryRequest;
+use App\Http\Requests\StoreCategoryRequest;
 use App\Http\Requests\UpdateTopCategoryRequest;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
 class CategoryController extends Controller {
@@ -35,7 +34,7 @@ class CategoryController extends Controller {
         }
     }
 
-    public function store( StoreTopCategoryRequest $request ) {
+    public function store( StoreCategoryRequest $request ) {
         $validated = $request->validated();
         if ( $validated ) {
             $category = new Category;

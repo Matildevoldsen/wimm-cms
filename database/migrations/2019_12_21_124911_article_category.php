@@ -14,10 +14,10 @@ class ArticleCategory extends Migration
     public function up()
     {
         Schema::create('article_category', function (Blueprint $table) {
-            $table->increments('id');
-            $table->integer('article_id')->unsigned();
+            $table->bigIncrements('id');
+            $table->bigIncrements('article_id')->unsigned();
             $table->foreign('article_id')->references('id')->on('articles')->onDelete('cascade');
-            $table->integer('category_id')->unsigned();
+            $table->bigIncrements('category_id')->unsigned();
             $table->foreign('category_id')->references('id')->on('categories')->onDelete('cascade');
         });
     }

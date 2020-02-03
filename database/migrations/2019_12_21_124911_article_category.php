@@ -15,9 +15,9 @@ class ArticleCategory extends Migration
     {
         Schema::create('article_category', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->integer('article_id');
+            $table->bigInteger('article_id');
             $table->foreign('article_id')->references('id')->on('articles')->onDelete('cascade');
-            $table->integer('category_id');
+            $table->bigInteger('category_id');
             $table->foreign('category_id')->references('id')->on('categories')->onDelete('cascade');
         });
     }

@@ -14,7 +14,7 @@ export default {
       
     };
   },
-  mounted() {
+  beforeMount() {
     this.$wait.start("loading");
     store.dispatch("topCategory/fetchTopCategories").then(() => {
         this.$wait.end("loading");

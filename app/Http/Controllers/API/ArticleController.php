@@ -12,6 +12,7 @@ class ArticleController extends Controller
 
     public function all( /*$sort = 'DEFAULT', $where = null, $whereOperator = null, $whereValue = null*/ ) {
         $articles = Article::all();
+
         return response()->json( ['data' => [
             'statusCode' => '200',
             'article' => $articles,

@@ -21,6 +21,10 @@ if ('serviceWorker' in navigator) {
 const App = Vue.component('App', require('./components/App.vue').default);
 import './assets/globalComponents';
 
+store.dispatch("article/fetchArticles").then(() => {
+
+});
+
 new Vue({
   render: h => h(App),
   store,

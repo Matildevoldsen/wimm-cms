@@ -17,9 +17,24 @@
               </div>
               <div class="content article-body">
                 <div v-html="category.desc"></div>
-                <hr />
-                <template>
-                <!-- Fetch Articles in here -->
+                <div class="separator">Articles</div>
+                <template v-if="articles">
+                  <div v-for="(article, index) in articles" v-bind:key="index">
+                      <p class="title article-title has-text-centered">
+                        {{ article.title }}
+                      </p>
+                      <div class="tags has-addons level-item">
+                        <span class="tag is-rounded is-info">{{ article.category.title }}</span>
+                        <span class="has-text-centered tag is-rounded">{{ moment(article.created_at).fromNow() }}</span>
+                      </div>
+
+                      <div class="has-text-cented" v-html="article.content">
+                        
+                      </div>
+                  </div>
+                </template>
+                <template v-if="!articles">
+                  <p>There is no articles here.</p>
                 </template>
               </div>
             </div>
@@ -41,11 +56,16 @@ export default {
     };
   },
   computed: mapState({
-    category: state => state.category.category.category
+    category: state => state.category.category.category,
+    articles: state => state.article.articles.article
   }),
   mounted() {
     this.$wait.start("loading");
     store.dispatch("category/fetchCategory", this.$route.params.id).then(() => {
+      this.$wait.end("loading");
+    });
+
+    store.dispatch("article/fetchArticles").then(() => {
       this.$wait.end("loading");
     });
   },
@@ -62,11 +82,31 @@ export default {
 }
 };
 </script>
-<style>
+<style lang="scss">
 .hero {
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
   height: 500px;
+}
+
+.separator {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    font-size: 20px;
+    font-weight: 600;
+}
+.separator::before, .separator::after {
+    content: '';
+    flex: 1;
+    border-bottom: 2px solid #efefef;
+    background: #fff;
+}
+.separator::before {
+    margin-right: .25em;
+}
+.separator::after {
+    margin-left: .25em;
 }
 </style>

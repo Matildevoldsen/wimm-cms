@@ -277,6 +277,7 @@ export default {
             type: 'is-success',
             position: 'is-top',
           })
+          localStorage.removeItem('localforage/wimm_cms/intended');
           this.$router.push('/category/' + getToken)
         }
       });

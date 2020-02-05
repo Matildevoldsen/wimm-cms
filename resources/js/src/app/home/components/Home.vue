@@ -11,15 +11,16 @@
             <div class="card-content" v-if="article">
               <div class="media">
                 <div class="media-content has-text-centered">
-                  <p class="title article-title">{{ article.title }}</p>
+                  <p class="title article-title"><router-link class="has-text-black" :to="'/articles/' + article.id">{{ article.title }}</router-link></p>
                   <div class="tags has-addons level-item">
-                    <span class="tag is-rounded is-info">{{ article.category.title }}</span>
+                    <span class="tag is-rounded is-info"><router-link :to="'/category/' + article.category[0].id" class="has-text-white">{{ article.category[0].title }}</router-link></span>
                     <span class="has-text-centered tag is-rounded">{{ moment(article.created_at).fromNow() }}</span>
                    </div>
                 </div>
               </div>
               <div class="content article-body">
-                <div></div>
+                  <div v-html="article.content"></div>
+                  <router-link class="is-link" :to="'/articles/' + article.id">Read more...</router-link>
               </div>
             </div>
           </div>

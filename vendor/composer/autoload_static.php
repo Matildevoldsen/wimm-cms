@@ -14,8 +14,8 @@ class ComposerStaticInit281b727d0c2ef35f774c080df26321f6
         '320cde22f66dd4f5d3fd621d3e88b98f' => __DIR__ . '/..' . '/symfony/polyfill-ctype/bootstrap.php',
         '667aeda72477189d0494fecd327c3641' => __DIR__ . '/..' . '/symfony/var-dumper/Resources/functions/dump.php',
         'def43f6c87e4f8dfd0c9e1b1bab14fe8' => __DIR__ . '/..' . '/symfony/polyfill-iconv/bootstrap.php',
-        '2c102faa651ef8ea5874edb585946bce' => __DIR__ . '/..' . '/swiftmailer/swiftmailer/lib/swift_required.php',
         '7b11c4dc42b3b3023073cb14e519683c' => __DIR__ . '/..' . '/ralouphie/getallheaders/src/getallheaders.php',
+        '2c102faa651ef8ea5874edb585946bce' => __DIR__ . '/..' . '/swiftmailer/swiftmailer/lib/swift_required.php',
         'c964ee0ededf28c96ebd9db5099ef910' => __DIR__ . '/..' . '/guzzlehttp/promises/src/functions_include.php',
         'a0edc8309cc5e1d60e3047b5df6b7052' => __DIR__ . '/..' . '/guzzlehttp/psr7/src/functions_include.php',
         '37a3dc5111fe8f707ab4c132ef1dbc62' => __DIR__ . '/..' . '/guzzlehttp/guzzle/src/functions_include.php',
@@ -64,6 +64,7 @@ class ComposerStaticInit281b727d0c2ef35f774c080df26321f6
         ),
         'W' => 
         array (
+            'WimmCMS\\core\\' => 13,
             'Whoops\\' => 7,
             'Webmozart\\Assert\\' => 17,
         ),
@@ -141,6 +142,7 @@ class ComposerStaticInit281b727d0c2ef35f774c080df26321f6
         ),
         'J' => 
         array (
+            'JeroenG\\Packager\\' => 17,
             'JakubOnderka\\PhpConsoleHighlighter\\' => 35,
             'JakubOnderka\\PhpConsoleColor\\' => 29,
         ),
@@ -205,6 +207,10 @@ class ComposerStaticInit281b727d0c2ef35f774c080df26321f6
         'XdgBaseDir\\' => 
         array (
             0 => __DIR__ . '/..' . '/dnoegel/php-xdg-base-dir/src',
+        ),
+        'WimmCMS\\core\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/wimmcms/core/src',
         ),
         'Whoops\\' => 
         array (
@@ -407,6 +413,10 @@ class ComposerStaticInit281b727d0c2ef35f774c080df26321f6
         array (
             0 => __DIR__ . '/..' . '/laminas/laminas-diactoros/src',
         ),
+        'JeroenG\\Packager\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/jeroen-g/laravel-packager/src',
+        ),
         'JakubOnderka\\PhpConsoleHighlighter\\' => 
         array (
             0 => __DIR__ . '/..' . '/jakub-onderka/php-console-highlighter/src',
@@ -551,6 +561,7 @@ class ComposerStaticInit281b727d0c2ef35f774c080df26321f6
         'App\\Http\\Middleware\\VerifyCsrfToken' => __DIR__ . '/../..' . '/app/Http/Middleware/VerifyCsrfToken.php',
         'App\\Http\\Requests\\Api\\FormRequest' => __DIR__ . '/../..' . '/app/Http/Requests/API/FormRequest.php',
         'App\\Http\\Requests\\StoreArticleRequest' => __DIR__ . '/../..' . '/app/Http/Requests/StoreArticleRequest.php',
+        'App\\Http\\Requests\\StoreCategoryRequest' => __DIR__ . '/../..' . '/app/Http/Requests/StoreCategoryRequest.php',
         'App\\Http\\Requests\\StoreTopCategoryRequest' => __DIR__ . '/../..' . '/app/Http/Requests/StoreTopCategoryRequest.php',
         'App\\Http\\Requests\\UpdateTopCategoryRequest' => __DIR__ . '/../..' . '/app/Http/Requests/UpdateTopCategoryRequest.php',
         'App\\Page' => __DIR__ . '/../..' . '/app/Page.php',
@@ -2313,6 +2324,26 @@ class ComposerStaticInit281b727d0c2ef35f774c080df26321f6
         'JakubOnderka\\PhpConsoleColor\\ConsoleColor' => __DIR__ . '/..' . '/jakub-onderka/php-console-color/src/ConsoleColor.php',
         'JakubOnderka\\PhpConsoleColor\\InvalidStyleException' => __DIR__ . '/..' . '/jakub-onderka/php-console-color/src/InvalidStyleException.php',
         'JakubOnderka\\PhpConsoleHighlighter\\Highlighter' => __DIR__ . '/..' . '/jakub-onderka/php-console-highlighter/src/Highlighter.php',
+        'JeroenG\\Packager\\ArchiveExtractors\\Extractor' => __DIR__ . '/..' . '/jeroen-g/laravel-packager/src/ArchiveExtractors/Extractor.php',
+        'JeroenG\\Packager\\ArchiveExtractors\\Manager' => __DIR__ . '/..' . '/jeroen-g/laravel-packager/src/ArchiveExtractors/Manager.php',
+        'JeroenG\\Packager\\ArchiveExtractors\\Tar' => __DIR__ . '/..' . '/jeroen-g/laravel-packager/src/ArchiveExtractors/Tar.php',
+        'JeroenG\\Packager\\ArchiveExtractors\\TarGz' => __DIR__ . '/..' . '/jeroen-g/laravel-packager/src/ArchiveExtractors/TarGz.php',
+        'JeroenG\\Packager\\ArchiveExtractors\\Zip' => __DIR__ . '/..' . '/jeroen-g/laravel-packager/src/ArchiveExtractors/Zip.php',
+        'JeroenG\\Packager\\Commands\\CheckPackage' => __DIR__ . '/..' . '/jeroen-g/laravel-packager/src/Commands/CheckPackage.php',
+        'JeroenG\\Packager\\Commands\\DisablePackage' => __DIR__ . '/..' . '/jeroen-g/laravel-packager/src/Commands/DisablePackage.php',
+        'JeroenG\\Packager\\Commands\\EnablePackage' => __DIR__ . '/..' . '/jeroen-g/laravel-packager/src/Commands/EnablePackage.php',
+        'JeroenG\\Packager\\Commands\\GetPackage' => __DIR__ . '/..' . '/jeroen-g/laravel-packager/src/Commands/GetPackage.php',
+        'JeroenG\\Packager\\Commands\\GitPackage' => __DIR__ . '/..' . '/jeroen-g/laravel-packager/src/Commands/GitPackage.php',
+        'JeroenG\\Packager\\Commands\\ListPackages' => __DIR__ . '/..' . '/jeroen-g/laravel-packager/src/Commands/ListPackages.php',
+        'JeroenG\\Packager\\Commands\\MoveTests' => __DIR__ . '/..' . '/jeroen-g/laravel-packager/src/Commands/MoveTests.php',
+        'JeroenG\\Packager\\Commands\\NewPackage' => __DIR__ . '/..' . '/jeroen-g/laravel-packager/src/Commands/NewPackage.php',
+        'JeroenG\\Packager\\Commands\\PublishPackage' => __DIR__ . '/..' . '/jeroen-g/laravel-packager/src/Commands/PublishPackage.php',
+        'JeroenG\\Packager\\Commands\\RemovePackage' => __DIR__ . '/..' . '/jeroen-g/laravel-packager/src/Commands/RemovePackage.php',
+        'JeroenG\\Packager\\Conveyor' => __DIR__ . '/..' . '/jeroen-g/laravel-packager/src/Conveyor.php',
+        'JeroenG\\Packager\\FileHandler' => __DIR__ . '/..' . '/jeroen-g/laravel-packager/src/FileHandler.php',
+        'JeroenG\\Packager\\PackagerServiceProvider' => __DIR__ . '/..' . '/jeroen-g/laravel-packager/src/PackagerServiceProvider.php',
+        'JeroenG\\Packager\\ProgressBar' => __DIR__ . '/..' . '/jeroen-g/laravel-packager/src/ProgressBar.php',
+        'JeroenG\\Packager\\Wrapping' => __DIR__ . '/..' . '/jeroen-g/laravel-packager/src/Wrapping.php',
         'JsonException' => __DIR__ . '/..' . '/symfony/polyfill-php73/Resources/stubs/JsonException.php',
         'Laminas\\Diactoros\\AbstractSerializer' => __DIR__ . '/..' . '/laminas/laminas-diactoros/src/AbstractSerializer.php',
         'Laminas\\Diactoros\\CallbackStream' => __DIR__ . '/..' . '/laminas/laminas-diactoros/src/CallbackStream.php',
@@ -4800,6 +4831,9 @@ class ComposerStaticInit281b727d0c2ef35f774c080df26321f6
         'Whoops\\Util\\Misc' => __DIR__ . '/..' . '/filp/whoops/src/Whoops/Util/Misc.php',
         'Whoops\\Util\\SystemFacade' => __DIR__ . '/..' . '/filp/whoops/src/Whoops/Util/SystemFacade.php',
         'Whoops\\Util\\TemplateHelper' => __DIR__ . '/..' . '/filp/whoops/src/Whoops/Util/TemplateHelper.php',
+        'WimmCMS\\core\\Facades\\core' => __DIR__ . '/..' . '/wimmcms/core/src/Facades/core.php',
+        'WimmCMS\\core\\core' => __DIR__ . '/..' . '/wimmcms/core/src/core.php',
+        'WimmCMS\\core\\coreServiceProvider' => __DIR__ . '/..' . '/wimmcms/core/src/coreServiceProvider.php',
         'XdgBaseDir\\Xdg' => __DIR__ . '/..' . '/dnoegel/php-xdg-base-dir/src/Xdg.php',
         'betterapp\\LaravelDbEncrypter\\Traits\\EncryptableDbAttribute' => __DIR__ . '/..' . '/betterapp/laravel-db-encrypter/src/Traits/EncryptableDbAttribute.php',
         'phpDocumentor\\Reflection\\DocBlock' => __DIR__ . '/..' . '/phpdocumentor/reflection-docblock/src/DocBlock.php',

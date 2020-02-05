@@ -20,17 +20,19 @@
                 <div class="separator">Articles</div>
                 <template v-if="articles">
                   <div v-for="(article, index) in articles" v-bind:key="index">
+                    <template v-if="article.category[0].id == category.id">
                       <p class="title article-title has-text-centered">
-                        {{ article.title }}
+                        <router-link class="has-text-black" :to="'/articles/' + article.id">{{ article.title }}</router-link>
                       </p>
                       <div class="tags has-addons level-item">
-                        <span class="tag is-rounded is-info">{{ article.category.title }}</span>
+                        <span class="tag is-rounded is-info">{{ article.category[0].title }}</span>
                         <span class="has-text-centered tag is-rounded">{{ moment(article.created_at).fromNow() }}</span>
                       </div>
 
                       <div class="has-text-cented" v-html="article.content">
                         
-                      </div>
+                      </div> <router-link class="is-link" :to="'/articles/' + article.id">Read more...</router-link>
+                    </template>
                   </div>
                 </template>
                 <template v-if="!articles">
@@ -52,7 +54,7 @@ import moment from "moment";
 export default {
   data() {
     return {
-      moment: moment
+      moment: moment,
     };
   },
   computed: mapState({

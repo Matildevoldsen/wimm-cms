@@ -40,7 +40,7 @@
                 </b-table-column>
 
                 <b-table-column label="Modify" width="500">
-                    View | Edit | Delete
+                    <router-link :to="'/category/' + props.row.id">View</router-link> | Edit | Delete
                 </b-table-column>
             </template>
         </b-table>

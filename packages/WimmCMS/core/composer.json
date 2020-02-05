@@ -1,0 +1,42 @@
+{
+    "name": "wimmcms/core",
+    "description": "Basic functions for content management system. Used in Wimm CMS",
+    "license": "license",
+    "authors": [
+        {
+            "name": "Matilde Enevoldsen",
+            "email": "matildeene@outlook.com"
+        }
+    ],
+    "homepage": "https://github.com/wimmcms/core",
+    "keywords": ["Laravel", "core"],
+    "require": {
+        "illuminate/support": "~5|~6"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^8.0",
+        "mockery/mockery": "^1.1",
+        "orchestra/testbench": "^4.0",
+        "sempro/phpunit-pretty-print": "^1.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "WimmCMS\\core\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "WimmCMS\\core\\Tests\\": "tests"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "WimmCMS\\core\\coreServiceProvider"
+            ],
+            "aliases": {
+                "core": "WimmCMS\\core\\Facades\\core"
+            }
+        }
+    }
+}

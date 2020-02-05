@@ -21,6 +21,7 @@ Not all of the listed features have been added yet. All of these features is for
 - Stats: See how many comments, articles, pages, top categories, under categories that's been made in the past month.
 - Sitemap generator (daily auto generation)
 - WYSIWIG editor with syntax highlight and ability to insert image into it without having to store it on the server.
+- Custom templates and variables for Home, About, Contact page.
 
 Please look for stages.md file to get an overview of current feautures that'll be added.
 

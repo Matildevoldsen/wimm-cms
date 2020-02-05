@@ -7,5 +7,8 @@ import categories from './categories/routes'
 import topCategories from './topCategories/routes'
 import errors from './errors/routes'
 import settings from './settings/routes'
+import setup from './setup/routes'
 
-export default [...home, ...auth, ...errors, ...admin, ...articles, ...pages, ...categories, ...topCategories, ...settings]
+export default [...home, ...auth, ...errors, ...admin,
+                ...articles, ...pages, ...categories, 
+                ...topCategories, ...settings, ...setup]

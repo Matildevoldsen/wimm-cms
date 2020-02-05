@@ -50,7 +50,7 @@ export default [
         }
     },
     {
-        path: '/articles/:id-:slug',
+        path: '/articles/:id',
         component: View,
         name: 'view.article',
         meta: {

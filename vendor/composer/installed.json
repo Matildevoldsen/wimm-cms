@@ -1200,6 +1200,69 @@
         "description": "Highlight PHP code in terminal"
     },
     {
+        "name": "jeroen-g/laravel-packager",
+        "version": "V2.4",
+        "version_normalized": "2.4.0.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/Jeroen-G/laravel-packager.git",
+            "reference": "bc675b201814919cb5936811acc8ba2bea417823"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/Jeroen-G/laravel-packager/zipball/bc675b201814919cb5936811acc8ba2bea417823",
+            "reference": "bc675b201814919cb5936811acc8ba2bea417823",
+            "shasum": ""
+        },
+        "require": {
+            "ext-json": "*",
+            "ext-zip": "*",
+            "guzzlehttp/guzzle": "~6",
+            "illuminate/support": "~5|~6"
+        },
+        "require-dev": {
+            "orchestra/testbench": ">=3.8",
+            "phpunit/phpunit": "~8"
+        },
+        "suggest": {
+            "sensiolabs/security-checker": "Required to use the security check command"
+        },
+        "time": "2019-12-22T19:55:09+00:00",
+        "type": "library",
+        "extra": {
+            "laravel": {
+                "providers": [
+                    "JeroenG\\Packager\\PackagerServiceProvider"
+                ]
+            }
+        },
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "JeroenG\\Packager\\": "src"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "EUPL-1.1"
+        ],
+        "authors": [
+            {
+                "name": "JeroenG",
+                "email": "jeroengjeroeng@gmail.com",
+                "homepage": "https://github.com/Jeroen-G"
+            }
+        ],
+        "description": "A cli tool for creating Laravel packages.",
+        "homepage": "https://github.com/Jeroen-G/laravel-packager",
+        "keywords": [
+            "Skeleton",
+            "laravel",
+            "package",
+            "packager"
+        ]
+    },
+    {
         "name": "laminas/laminas-diactoros",
         "version": "2.2.2",
         "version_normalized": "2.2.2.0",
@@ -6343,6 +6406,63 @@
             "assert",
             "check",
             "validate"
+        ]
+    },
+    {
+        "name": "wimmcms/core",
+        "version": "dev-master",
+        "version_normalized": "9999999-dev",
+        "dist": {
+            "type": "path",
+            "url": "/Users/matildewittrupenevoldsen/PhpstormProjects/WimmCMS/packages/WimmCMS/core",
+            "reference": "75de2848c297a1e6372be870a97067fbec9368c4"
+        },
+        "require": {
+            "illuminate/support": "~5|~6"
+        },
+        "require-dev": {
+            "mockery/mockery": "^1.1",
+            "orchestra/testbench": "~3|~4",
+            "phpunit/phpunit": "^8.0",
+            "sempro/phpunit-pretty-print": "^1.0"
+        },
+        "type": "library",
+        "extra": {
+            "laravel": {
+                "providers": [
+                    "WimmCMS\\core\\coreServiceProvider"
+                ],
+                "aliases": {
+                    "core": "WimmCMS\\core\\Facades\\core"
+                }
+            }
+        },
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "WimmCMS\\core\\": "src/"
+            }
+        },
+        "autoload-dev": {
+            "psr-4": {
+                "WimmCMS\\core\\Tests\\": "tests"
+            }
+        },
+        "license": [
+            "license"
+        ],
+        "authors": [
+            {
+                "name": "author name",
+                "email": "author email",
+                "homepage": "author homepage"
+            }
+        ],
+        "description": ":package_description",
+        "homepage": "https://github.com/wimmcms/core",
+        "keywords": [
+            "Laravel",
+            "core"
         ]
     }
 ]

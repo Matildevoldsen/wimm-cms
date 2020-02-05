@@ -5,6 +5,15 @@
                 <b-menu-item label="Overview"></b-menu-item>
             </router-link>
             <b-menu-item label="Pages">
+                <router-link to="/admin/pages/home/edit">
+                    <b-menu-item label="Edit Home Page"></b-menu-item>
+                </router-link>
+                <router-link to="/admin/pages/about/edit">
+                    <b-menu-item label="Edt About Page"></b-menu-item>
+                </router-link>
+                <router-link to="/admin/pages/contact/edit">
+                    <b-menu-item label="Edit Contact Page"></b-menu-item>
+                </router-link>
                 <router-link to="/admin/pages/overview">
                     <b-menu-item label="Overview"></b-menu-item>
                 </router-link>

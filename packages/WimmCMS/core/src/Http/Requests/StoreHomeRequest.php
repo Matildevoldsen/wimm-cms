@@ -4,7 +4,7 @@ namespace WimmCMS\core\Http\Requests;
 
 use WimmCMS\core\Http\Requests\API\FormRequest;
 
-class StoreSettingsRequest extends FormRequest
+class StoreHomeRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.

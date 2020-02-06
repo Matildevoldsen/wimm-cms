@@ -67,6 +67,8 @@
                     <b-input v-model="form.home.displayName" value="Home"></b-input>
                   </b-field>
 
+
+
                   <b-field
                     v-bind:message="errorsHome.description"
                     v-bind:type="errorsHome.description ? 'is-danger' : ''"
@@ -278,7 +280,7 @@
 
                     <b-field label="TikTok" :labelPosition="labelPosition">
                         <p class="control">
-                            <span class="button is-static">@</span>
+                            <span class="button is-static">https://www.</span>
                         </p>
                         <b-input placeholder="" expanded></b-input>
                     </b-field>
@@ -345,7 +347,6 @@ export default {
           name: "",
           email: "",
           description: "",
-          head: null,
           logo: null,
           favicon: null,
           showUnderCounstrion: false,

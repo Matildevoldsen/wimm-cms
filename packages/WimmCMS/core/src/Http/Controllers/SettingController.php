@@ -20,7 +20,7 @@ class SettingController extends Controller
         } else {
             return response()->json( [
                 'errors' => [
-                    'root' => 'This top category does not exist'
+                    'root' => 'Error while loading site details. '
                 ]
             ] );
         }

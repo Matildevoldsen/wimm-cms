@@ -31,7 +31,6 @@ class StoreHomeRequest extends FormRequest
             'sortBy' => 'required',
             'layout' => 'required',
             'thumbnail' => 'required|image',
-
         ];
     }
 }

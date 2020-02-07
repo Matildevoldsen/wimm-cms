@@ -250,6 +250,8 @@
                   </div>
                 </b-step-item>
               </b-steps>
+              <hr/>
+              <b-button type="is-info" icon-left="pencil-alt">Submit</b-button>
             </div>
           </div>
         </div>

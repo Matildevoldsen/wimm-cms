@@ -1,8 +1,10 @@
 <?php
 
+use WimmCMS\core\Http\Controllers\AboutController;
 use WimmCMS\core\Http\Controllers\StatsController;
 use WimmCMS\core\Http\Controllers\ArticleController;
 use WimmCMS\core\Http\Controllers\CategoryController;
+use WimmCMS\core\Http\Controllers\HomeController;
 use WimmCMS\core\Http\Controllers\SettingController;
 use WimmCMS\core\Http\Controllers\TopCategoryController;
 use WimmCMS\core\Http\Controllers\UserController;
@@ -18,6 +20,8 @@ Route::prefix('api')->group(function () {
                 Route::post('category/new', [CategoryController::class, 'store']);
                 Route::post('article/new', [ArticleController::class, 'store']);
                 Route::post('settings/new', [SettingController::class, 'store']);
+                Route::post('home/new', [HomeController::class, 'store']);
+                Route::post('about/new', [AboutController::class, 'store']);
 
                 Route::get('stats/thisMonth', [StatsController::class, 'getStatsForFullMonth']);
             });

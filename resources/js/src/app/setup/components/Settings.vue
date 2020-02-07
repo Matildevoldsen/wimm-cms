@@ -249,42 +249,6 @@
                     </span>
                   </div>
                 </b-step-item>
-                <b-step-item clickable label="Social Media Links" icon="users">
-                    <b-field label="Facebook" :labelPosition="labelPosition">
-                        <p class="control">
-                            <span class="button is-static">https://www.facebook.com/</span>
-                        </p>
-                        <b-input placeholder="" expanded></b-input>
-                    </b-field>
-
-                    <b-field label="Instagram" :labelPosition="labelPosition">
-                        <p class="control">
-                            <span class="button is-static">https://www.instagram.com/</span>
-                        </p>
-                        <b-input placeholder="" expanded></b-input>
-                    </b-field>
-
-                    <b-field label="Twitter" :labelPosition="labelPosition">
-                        <p class="control">
-                            <span class="button is-static">https://www.twitter.com/</span>
-                        </p>
-                        <b-input placeholder="" expanded></b-input>
-                    </b-field>
-
-                    <b-field label="LinkedIn" :labelPosition="labelPosition">
-                        <p class="control">
-                            <span class="button is-static">https://www.linkedin.com/</span>
-                        </p>
-                        <b-input placeholder="" expanded></b-input>
-                    </b-field>
-
-                    <b-field label="TikTok" :labelPosition="labelPosition">
-                        <p class="control">
-                            <span class="button is-static">https://www.</span>
-                        </p>
-                        <b-input placeholder="" expanded></b-input>
-                    </b-field>
-                </b-step-item>
               </b-steps>
             </div>
           </div>
@@ -373,8 +337,7 @@ export default {
           content: ``,
           email: "",
           thumbnail: null
-        },
-        socialMediaLinks: {}
+        }
       }
     };
   },

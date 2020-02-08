@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateHomeTable extends Migration
+class HomeTable extends Migration
 {
     /**
      * Run the migrations.
@@ -19,6 +19,7 @@ class CreateHomeTable extends Migration
             $table->string('nav_title')->default('Home');
             $table->string('nav_icon')->nullable();
             $table->text('content')->nullable();
+            $table->string('thumbnail');
             $table->boolean('show_articles')->default(true);
             $table->boolean('sort_by')->default(true);
             $table->boolean('show_thumbnail_full_page')->default(true);
@@ -29,7 +30,8 @@ class CreateHomeTable extends Migration
             $table->boolean('show_contact_form_at_bottom_of_page')->default(true);
             $table->integer('lang')->default(1);
             $table->string('layout_type');
-            $table->string('seo_desc');
+            $table->string('seo_desc')->nullable();
+            $table->timestamps();
         });
     }
 

@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateAboutTable extends Migration
+class AboutTable extends Migration
 {
     /**
      * Run the migrations.
@@ -28,8 +28,10 @@ class CreateAboutTable extends Migration
             $table->boolean('show_in_navigation')->default(true);
             $table->boolean('show_contact_form_at_bottom_of_page')->default(false);
             $table->integer('lang')->default(2);
-            $table->string('layout_type');
-            $table->string('seo_desc');
+            $table->string('layout_type')->nullable();
+            $table->string('seo_desc')->nullable();
+            $table->string('thumbnail');
+            $table->timestamps();
         });
     }
 

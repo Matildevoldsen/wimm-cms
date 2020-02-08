@@ -17,8 +17,6 @@ class CreatePagesTable extends Migration
             $table->bigIncrements('id');
             $table->string('title');
             $table->string('nav_title');
-            $table->string('title');
-            $table->string('nav_title');
             $table->string('nav_icon');
             $table->text('content');
             $table->boolean('show_articles')->default(true);

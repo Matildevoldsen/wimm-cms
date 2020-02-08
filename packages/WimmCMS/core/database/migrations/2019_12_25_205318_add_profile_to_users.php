@@ -17,7 +17,7 @@ class AddProfileToUsers extends Migration
             $table->string('country')->nullable()->default('USA');
             $table->boolean('admin')->default(0);
             $table->string('bio')->nullable();
-            $table->string('avatar');
+            $table->string('avatar')->nullable();
             $table->date('dob')->nullable();
         });
     }

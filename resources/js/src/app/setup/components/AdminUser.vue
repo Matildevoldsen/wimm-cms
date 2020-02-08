@@ -82,6 +82,7 @@
 <script>
 import { mapActions } from "vuex";
 import { isEmpty } from "lodash";
+import store from "../../../vuex";
 
 export default {
   data() {
@@ -111,20 +112,9 @@ export default {
         const getToken = localStorage.getItem("localforage/wimm_cms/authtoken");
 
         if (!isEmpty(getToken)) {
-          store
-            .dispatch("auth/setToken")
-            .then(() => {
-              this.$wait.start("loading");
-              store.dispatch("auth/fetchUser").catch(() => {
-                store.dispatch("auth/clearAuth");
-                router.replace({ name: "login" });
-                this.$wait.end("loading");
-              });
-            })
-            .catch(() => {
-              store.dispatch("auth/clearAuth");
-              this.$wait.end("loading");
-            });
+          store.dispatch("auth/fetchUser").catch(() => {
+          });
+
           this.$router.push("/wimm_cms/installer/settings");
         }
       });

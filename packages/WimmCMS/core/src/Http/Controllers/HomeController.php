@@ -29,12 +29,12 @@ class HomeController extends Controller {
         $validated = $request->validated();
         if ( $validated ) {
             $home = new Home;
-            $home->name         = $request->name;
-            $home->displayName  = $request->displayName;
-            $home->description  = $request->description;
-            $home->showArticles = $request->showArticles;
-            $home->sortBy       = $request->sortBy;
-            $home->layout       = $request->layout;
+            $home->title         = $request->name;
+            $home->nav_title  = $request->displayName;
+            $home->content  = $request->description;
+            $home->show_articles = $request->showArticles;
+            $home->sort_by       = $request->sortBy;
+            $home->layout_type       = $request->layout;
 
             $image = $request->file( 'thumbnail' );
             $storagePath = Storage::disk('public')->put('thumbnail/home', $image);

@@ -5,6 +5,8 @@ import {
     setHttpToken
 } from '../../../helpers/index'
 
+const url = window.wimm.settings.appUrl
+
 export const addCategory = ({
     dispatch
 }, {
@@ -25,7 +27,7 @@ export const addCategory = ({
     data.append('language', payload.language)
     data.append('top_category_id', payload.top_category_id)
 
-    axios.post('/api/auth/admin/category/new', data, {
+    axios.post(url + '/api/auth/admin/category/new', data, {
         headers: {
             'accept': 'application/json',
             'Content-Type': `multipart/form-data; boundary=${data._boundary}`,
@@ -45,7 +47,7 @@ export const setToken = () => {
 export const fetchCategories = ({
     commit
 }) => {
-    return axios.get('/api/category/all').then((response) => {
+    return axios.get(url + '/api/category/all').then((response) => {
         commit('setCategories', response.data.data)
     })
 };
@@ -53,7 +55,7 @@ export const fetchCategories = ({
 export const fetchCategory = ({
     commit
 }, id) => {
-    return axios.get('/api/category/' + id).then((response) => {
+    return axios.get(url + '/api/category/' + id).then((response) => {
         commit('setCategory', response.data.data)
     })
 };

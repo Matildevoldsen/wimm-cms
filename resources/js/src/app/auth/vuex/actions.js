@@ -3,8 +3,10 @@ import {setHttpToken} from '../../../helpers/index'
 import localforage from 'localforage'
 import axios from 'axios';
 
+const url = window.wimm.settings.appUrl
+
 export const register = ({dispatch}, {payload, context}) => {
-    return axios.post('/api/auth/register', payload).then((response) => {
+    return axios.post(url + '/api/auth/register', payload).then((response) => {
         dispatch('setToken', response.data.meta.token).then(() => {
             dispatch('fetchUser')
         })
@@ -14,7 +16,7 @@ export const register = ({dispatch}, {payload, context}) => {
 };
 
 export const login = ({dispatch}, {payload, context}) => {
-    return axios.post('/api/auth/login', payload).then((response) => {
+    return axios.post(url + '/api/auth/login', payload).then((response) => {
         dispatch('setToken', response.data.meta.token).then(() => {
             dispatch('fetchUser')
         })
@@ -24,7 +26,7 @@ export const login = ({dispatch}, {payload, context}) => {
 };
 
 export const fetchUser = ({commit}) => {
-    return axios.get('/api/auth/info').then((response) => {
+    return axios.get(url + '/api/auth/info').then((response) => {
         commit('setAuthenticated', true)
         commit('setUserData', response.data.data)
         if (response.data.data.user.admin == 1) {
@@ -36,7 +38,7 @@ export const fetchUser = ({commit}) => {
 };
 
 export const logout = ({dispatch}) => {
-    return axios.get('/api/auth/logout').then(() => {
+    return axios.get(url + '/api/auth/logout').then(() => {
         dispatch('clearAuth')
     })
 };

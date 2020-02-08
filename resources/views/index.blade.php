@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>{{ config('app.name') }}</title>
+    <title>{{ $settings->name }}</title>
 
     <!-- Scripts -->
     <script type="text/javascript">
@@ -12,6 +12,30 @@
                 'csrfToken' => csrf_token(),
             ]) !!};
     </script>
+
+    @if ($settings && isset($settings))
+    <script type="text/javascript">
+        window.wimm = {
+            settings: {
+                name: "{{ $settings->name }}",
+                meta: "{{ $settings->description }}",
+                logoLocation: "{{ asset($settings->logo) }}",
+                appUrl: "{{ config('app.url') }}"
+            }
+        }
+    </script>
+    @else
+    <script type="text/javascript">
+        window.wimm = {
+            settings: {
+                name: "{{ config('app.name') }}",
+                meta: "",
+                logoLocation: "",
+                appUrl: "{{ config('app.url') }}"
+            }
+        }
+    </script>
+    @endif
 
     <!--- PWA --->
     <link rel="manifest" href="/manifest.json">

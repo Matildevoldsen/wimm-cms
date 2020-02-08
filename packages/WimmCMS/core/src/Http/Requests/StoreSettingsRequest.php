@@ -27,7 +27,6 @@ class StoreSettingsRequest extends FormRequest
             'name' => 'required|min:2|max:100',
             'email' => 'required|email',
             'description' => 'required|min:50|max:170',
-            'head' => 'required|min:5',
             'logo' => 'required',
             'favicon' => 'required',
             'showUnderCounstrion' => 'required'

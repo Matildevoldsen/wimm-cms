@@ -5,6 +5,7 @@ import stats from '../components/widgets/Stats/vuex';
 import topCategory from '../app/topCategories/vuex'
 import category from '../app/categories/vuex'
 import article from '../app/articles/vuex'
+import setup from '../app/setup/vuex'
 
 Vue.use(Vuex);
 
@@ -14,6 +15,7 @@ export default new Vuex.Store({
         stats: stats,
         topCategory: topCategory,
         category: category,
-        article: article
+        article: article,
+        setup: setup
     }
 });

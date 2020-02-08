@@ -29,9 +29,9 @@ class AboutController extends Controller {
         $validated = $request->validated();
         if ( $validated ) {
             $about = new About;
-            $about->name         = $request->name;
-            $about->displayName  = $request->displayName;
-            $about->description  = $request->description;
+            $about->title         = $request->name;
+            $about->nav_title  = $request->displayName;
+            $about->content  = $request->description;
 
             $image = $request->file( 'thumbnail' );
             $storagePath = Storage::disk('public')->put('thumbnail/about', $image);

@@ -5,6 +5,8 @@ import {
     setHttpToken
 } from '../../../helpers/index'
 
+const url = window.wimm.settings.appUrl
+
 export const addArticle = ({
     dispatch
 }, {
@@ -26,7 +28,7 @@ export const addArticle = ({
     data.append('language', payload.language)
     data.append('category_id', payload.category_id)
 
-    axios.post('/api/auth/admin/article/new', data, {
+    axios.post(url + '/api/auth/admin/article/new', data, {
         headers: {
             'accept': 'application/json',
             'Content-Type': `multipart/form-data; boundary=${data._boundary}`,
@@ -46,7 +48,7 @@ export const setToken = () => {
 export const fetchArticles = ({
     commit
 }) => {
-    return axios.get('/api/article/all').then((response) => {
+    return axios.get(url + '/api/article/all').then((response) => {
         commit('setArticles', response.data.data)
     })
 };
@@ -54,7 +56,7 @@ export const fetchArticles = ({
 export const fetchArticle = ({
     commit
 }, id) => {
-    return axios.get('/api/article/' + id).then((response) => {
+    return axios.get(url + '/api/article/' + id).then((response) => {
         commit('setArticle', response.data.data)
     })
 };

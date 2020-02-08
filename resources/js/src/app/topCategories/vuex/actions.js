@@ -4,6 +4,8 @@ import {
     setHttpToken
 } from '../../../helpers/index'
 
+const url = window.wimm.settings.appUrl
+
 export const addTopCategory = ({
     dispatch
 }, {
@@ -21,7 +23,7 @@ export const addTopCategory = ({
     data.append('show_in_navigation', payload.show_in_navigation)
     data.append('thumbnail', payload.thumbnail)
 
-    axios.post('/api/auth/admin/topCategory/new', data, {
+    axios.post(url + '/api/auth/admin/topCategory/new', data, {
         headers: {
             'accept': 'application/json',
             'Content-Type': `multipart/form-data; boundary=${data._boundary}`,
@@ -45,7 +47,7 @@ export const setToken = () => {
 export const fetchTopCategories = ({
     commit
 }) => {
-    return axios.get('/api/topCategory/all').then((response) => {
+    return axios.get(url + '/api/topCategory/all').then((response) => {
         commit('setTopCategories', response.data.data)
     })
 };
@@ -55,7 +57,7 @@ export const fetchTopCategory = ({
 }, {
     id
 }) => {
-    return axios.get('/api/topCategory/' + id).then((response) => {
+    return axios.get(url + '/api/topCategory/' + id).then((response) => {
         commit('setTopCategory', response.data.data)
     })
 };

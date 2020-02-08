@@ -29,9 +29,9 @@ class ContactController extends Controller {
         $validated = $request->validated();
         if ( $validated ) {
             $contact = new Contact;
-            $contact->name         = $request->name;
-            $contact->displayName  = $request->displayName;
-            $contact->description  = $request->description;
+            $contact->title         = $request->name;
+            $contact->nav_title  = $request->displayName;
+            $contact->content  = $request->description;
             $contact->email  = $request->email;
 
             $image = $request->file( 'thumbnail' );

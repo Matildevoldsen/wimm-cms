@@ -20,7 +20,7 @@ if ('serviceWorker' in navigator) {
 
 const App = Vue.component('App', require('./components/App.vue').default);
 import './assets/globalComponents';
-
+console.log(window.wimm)
 store.dispatch("article/fetchArticles").then(() => {
 
 });

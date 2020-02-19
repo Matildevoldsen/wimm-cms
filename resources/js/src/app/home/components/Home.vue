@@ -19,7 +19,7 @@
                 </div>
               </div>
               <div class="content article-body">
-                  <div v-html="article.content"></div>
+                  <div v-html="truncate(article.content, 200)"></div>
                   <router-link class="is-link" :to="'/articles/' + article.id">Read more...</router-link>
               </div>
             </div>
@@ -33,6 +33,7 @@
 import { mapState } from "vuex";
 import moment from "moment";
 import store from "../../../vuex";
+import filters from  '../../../helpers/filters'
 
 export default {
   data() {
@@ -43,6 +44,11 @@ export default {
   computed: mapState({
     articles: state => state.article.articles.article
   }),
+  methods: {
+    truncate(value, limit) {
+      return filters.truncate(value, limit)
+    }
+  },
   beforeMount() {
       this.$wait.start("loading");
     store.dispatch("article/fetchArticles").then(() => {

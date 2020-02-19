@@ -406,6 +406,10 @@
   padding-right: 100px !important;
 }
 
+body {
+  background-color: #f0f2f4;
+}
+
 .hero-body {
   background-position: center;
   background-size: cover;

@@ -15,6 +15,7 @@
         "laravel/passport": "^8.0",
         "laravel/tinker": "^2.0",
         "laravel/ui": "^1.1",
+        "spatie/laravel-sitemap": "^5.6",
         "wimmcms/core": "dev-master"
     },
     "require-dev": {

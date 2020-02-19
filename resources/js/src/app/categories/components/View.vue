@@ -29,9 +29,8 @@
                         <span class="has-text-centered tag is-rounded">{{ moment(article.created_at).fromNow() }}</span>
                       </div>
 
-                      <div class="has-text-cented" v-html="article.content">
-                        
-                      </div> <router-link class="is-link" :to="'/articles/' + article.id">Read more...</router-link>
+                      <div class="has-text-cented" v-html="truncate(article.content, 200)"></div> 
+                      <router-link class="is-link" :to="'/articles/' + article.id">Read more</router-link>
                     </template>
                   </div>
                 </template>
@@ -50,6 +49,7 @@
 import { mapState } from "vuex";
 import store from "../../../vuex";
 import moment from "moment";
+import filters from  '../../../helpers/filters'
 
 export default {
   data() {
@@ -59,8 +59,13 @@ export default {
   },
   computed: mapState({
     category: state => state.category.category.category,
-    articles: state => state.article.articles.article
+    articles: state => state.article.articles.article,
   }),
+  methods: {
+    truncate(value, limit) {
+      return filters.truncate(value, limit);
+    }
+  },
   mounted() {
     this.$wait.start("loading");
     store.dispatch("category/fetchCategory", this.$route.params.id).then(() => {

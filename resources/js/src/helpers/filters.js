@@ -1,5 +1,3 @@
-import Vue from "vue";
-
 const filters = {
   truncate(value, limit) {
     if (value.length > limit) {

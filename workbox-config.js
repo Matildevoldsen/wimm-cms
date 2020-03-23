@@ -8,5 +8,5 @@ module.exports = {
   ],
   'swDest': 'public/service-worker.js',
   'globIgnores': [],
-  'swSrc': 'resources/js/src/sw.js'
+  'swSrc': 'resources/js/themes/sw.js'
 };

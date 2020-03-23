@@ -1,3 +1,3 @@
 <?php
 
-Route::get('/{all}', 'AppController@view')->where(['all' => '.*']);
+Route::get('/', 'AppController@view');

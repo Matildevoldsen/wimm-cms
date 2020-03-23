@@ -6455,7 +6455,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 /***/ (function(module, exports, __webpack_require__) {
 
 
-var content = __webpack_require__(/*! !../../css-loader??ref--6-1!../../postcss-loader/src??ref--6-2!./buefy.min.css */ "./node_modules/css-loader/index.js?!./node_modules/postcss-loader/src/index.js?!./node_modules/buefy/dist/buefy.min.css");
+var content = __webpack_require__(/*! !../../css-loader??ref--6-1!../../postcss-loader/themes??ref--6-2!./buefy.min.css */ "./node_modules/css-loader/index.js?!./node_modules/postcss-loader/src/index.js?!./node_modules/buefy/dist/buefy.min.css");
 
 if(typeof content === 'string') content = [[module.i, content, '']];
 
@@ -19942,7 +19942,7 @@ Object(_chunk_cca88db8_js__WEBPACK_IMPORTED_MODULE_2__["u"])(Plugin);
 
 /***/ "./node_modules/css-loader/index.js?!./node_modules/postcss-loader/src/index.js?!./node_modules/buefy/dist/buefy.min.css":
 /*!*******************************************************************************************************************************!*\
-  !*** ./node_modules/css-loader??ref--6-1!./node_modules/postcss-loader/src??ref--6-2!./node_modules/buefy/dist/buefy.min.css ***!
+  !*** ./node_modules/css-loader??ref--6-1!./node_modules/postcss-loader/themes??ref--6-2!./node_modules/buefy/dist/buefy.min.css ***!
   \*******************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
@@ -34933,7 +34933,7 @@ module.exports = localforage_js;
     /** Used to detect methods masquerading as native. */
     var maskSrcKey = (function() {
       var uid = /[^.]+$/.exec(coreJsData && coreJsData.keys && coreJsData.keys.IE_PROTO || '');
-      return uid ? ('Symbol(src)_1.' + uid) : '';
+      return uid ? ('Symbol(themes)_1.' + uid) : '';
     }());
 
     /**

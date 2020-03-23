@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use WimmCMS\core\Models\Setting;
 
 class AppController extends Controller
@@ -13,7 +12,7 @@ class AppController extends Controller
         if ($settings) {
             return view('index')->withSettings($settings);
         } else {
-            return view('index');
+            return view('setup');
         }
     }
 }

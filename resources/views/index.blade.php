@@ -13,29 +13,29 @@
             ]) !!};
     </script>
 
-    @if ($settings && isset($settings))
-    <script type="text/javascript">
-        window.wimm = {
-            settings: {
-                name: "{{ $settings->name }}",
-                meta: "{{ $settings->description }}",
-                logoLocation: "{{ asset($settings->logo) }}",
-                appUrl: "{{ config('app.url') }}"
+    @if(empty($settings) && isset($settings))
+        <script>
+            window.wimm = {
+                settings: {
+                    name: "{{ config('app.name') }}",
+                    meta: null,
+                    logoLocation: null,
+                    appUrl: "{{ config('app.url') }}"
+                }
             }
-        }
-    </script>
+        </script>
     @else
-    <script type="text/javascript">
-        window.wimm = {
-            settings: {
-                name: "{{ config('app.name') }}",
-                meta: "",
-                logoLocation: "",
-                appUrl: "{{ config('app.url') }}"
+        <script>
+            window.wimm = {
+                settings: {
+                    name: "{{ $settings->name }}",
+                    meta: "{{ $settings->description}}",
+                    logoLocation: "{{ asset($settings->logo) }}",
+                    appUrl: "{{ config('app.url') }}"
+                }
             }
-        }
-    </script>
-    @endif
+        </script>
+@endif
 
     <!--- PWA --->
     <link rel="manifest" href="/manifest.json">

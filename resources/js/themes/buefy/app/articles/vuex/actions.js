@@ -3,7 +3,7 @@ import FormData from 'form-data'
 import localforage from 'localforage'
 import {
     setHttpToken
-} from '../../../helpers'
+} from '../../../../../helpers'
 
 const url = window.wimm.settings.appUrl
 

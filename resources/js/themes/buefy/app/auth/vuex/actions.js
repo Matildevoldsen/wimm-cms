@@ -1,5 +1,5 @@
 import {isEmpty} from 'lodash'
-import {setHttpToken} from '../../../helpers'
+import {setHttpToken} from '../../../../../helpers'
 import localforage from 'localforage'
 import axios from 'axios';
 

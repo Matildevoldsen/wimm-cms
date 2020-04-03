@@ -2,7 +2,7 @@ import axios from 'axios';
 import FormData from 'form-data'
 import {
     setHttpToken
-} from '../../../helpers'
+} from '../../../../../helpers'
 
 const url = window.wimm.settings.appUrl
 

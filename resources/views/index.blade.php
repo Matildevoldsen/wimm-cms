@@ -43,7 +43,7 @@
 
 
     <!-- Styles -->
-    <link type="text/css" rel="stylesheet" href="{{ asset('css/app.css') }}"/>
+    <link type="text/css" rel="stylesheet" href="{{ asset('css/default.min.css') }}"/>
 </head>
 <body>
 <noscript>

@@ -1,8 +1,11 @@
 // Import Bulma's core
-@import "~bulma/sass/utilities/_all";
+/*! bulmaswatch v0.8.0 | MIT License */
+@import "bulma";
+@import "variables";
+@import "overrides";
 @import "helpers";
 
-body {
+body, html {
     background-color: #f0f2f4;
 }
 
@@ -97,3 +100,5 @@ div.column.is-8:first-child {
         color: #f2dede;
     }
 }
+
+@import "~buefy/src/scss/buefy";

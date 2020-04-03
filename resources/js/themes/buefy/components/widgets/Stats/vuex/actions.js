@@ -1,5 +1,5 @@
 import axios from 'axios';
-import {setHttpToken} from '../../../../helpers'
+import {setHttpToken} from '../../../../../../helpers'
 
 const url = window.wimm.settings.appUrl
 

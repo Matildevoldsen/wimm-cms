@@ -4,21 +4,28 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>{{ $settings->name }}</title>
-
+    <title>Install: {{ config('app.name') }}</title>
     <!-- Scripts -->
+    <script>
+        window.wimm = {
+            settings: {
+                name: "{{ config('app.name') }}",
+                meta: null,
+                logoLocation: null,
+                appUrl: "{{ config('app.url') }}"
+            }
+        }
+    </script>
+
     <script type="text/javascript">
         window.Laravel = {!! json_encode([
                 'csrfToken' => csrf_token(),
             ]) !!};
     </script>
+    
     <!--- PWA --->
     <link rel="manifest" href="/manifest.json">
     <meta name="theme-color" content="#FFFFFF" />
-
-
-    <!-- Styles -->
-    <link type="text/css" rel="stylesheet" href="{{ asset('css/app.css') }}"/>
 </head>
 <body>
 <noscript>

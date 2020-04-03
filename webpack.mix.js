@@ -13,19 +13,11 @@ const WebpackShellPlugin = require('webpack-shell-plugin');
  |
  */
 
-mix.js('resources/js/themes/main.js', 'public/js')
+mix
+.js('resources/js/themes/main.js', 'public/js')
     .js('resources/js/install/setup.js', 'public/js')
    .sass('resources/sass/app.scss', 'public/css');
-mix.browserSync('127.0.0.1:8000');
+
 /**
 * Publishing the assets
 */
-mix.webpackConfig({
-   plugins: [
-       new WebpackShellPlugin({
-           onBuildEnd: [
-               'npx workbox injectManifest workbox-config.js'
-           ]
-       })
-   ]
-});

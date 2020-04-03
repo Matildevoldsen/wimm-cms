@@ -49,7 +49,7 @@
 import { mapState } from "vuex";
 import store from "../../../vuex";
 import moment from "moment";
-import filters from '../../../helpers/filters'
+import filters from '../../../../../helpers/filters'
 
 export default {
   data() {

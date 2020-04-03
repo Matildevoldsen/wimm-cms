@@ -5,7 +5,7 @@ import Vue from 'vue'
 import './bootstrap'
 import VueWait from 'vue-wait';
 import './buefy/assets/dependencies';
-import './buefy/helpers/filters.js'
+import '../helpers/filters'
 
 localforage.config({
   driver: localforage.LOCALSTORAGE,

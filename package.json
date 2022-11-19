@@ -21,7 +21,7 @@
         "localforage": "^1.7.3",
         "lodash": "^4.17.13",
         "popper.js": "^1.16.1",
-        "resolve-url-loader": "^3.1.0",
+        "resolve-url-loader": "^5.0.0",
         "sass": "^1.15.2",
         "sass-loader": "^8.0.0",
         "vue-ace-editor": "^1.0.3",
